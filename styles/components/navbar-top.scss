@@ -1,0 +1,81 @@
+/* Desktop header */
+.desktop-header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: 0.25s !important;
+
+    // Logo container
+    .logo-container {
+        img {
+            cursor: pointer;
+        }
+    }
+
+    // Search container
+    .search-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    // Button container
+    .button-container {
+        .badge-btn {
+            position: relative;
+            transition: 0.4s all;
+            color: rgb(148, 148, 148);
+
+            span {
+                font-size: 13px;
+            }
+
+            .badge {
+                color: #fff;
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                padding: 3px 6px;
+                font-size: 11px;
+                background: $primary;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                color: #000;
+            }
+        }
+
+        .content-btn {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            background: $primary;
+            border-radius: 25px;
+            padding: 7px 20px;
+        }
+    }
+}
+
+// Table & Mobile header
+.tablet-mobile-header-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: fixed;
+    transition: 0.25s !important;
+
+    .menu-btn {
+        color: $primary;
+        background: #fff;
+        padding: 5px 6px;
+    }
+}

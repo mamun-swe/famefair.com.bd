@@ -1,0 +1,61 @@
+.custom-carousel-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    // carousel-container
+    .carousel-container {
+        overflow: hidden;
+        position: relative;
+        border-radius: 6px;
+
+        .carousel .carousel-indicators {
+            li {
+                width: 10px;
+                height: 10px;
+                opacity: 0.6;
+                border-radius: 50%;
+                transition: 0.4s all;
+                border: 0 !important;
+                background-color: $primary;
+            }
+
+            .active {
+                opacity: 1;
+                width: 50px;
+                border-radius: 15px !important;
+            }
+        }
+
+        .carousel-card {
+            img {
+                cursor: pointer;
+                min-width: 100%;
+                min-height: 100%;
+            }
+
+            @media (max-width: 576px) {
+                height: 160px;
+            }
+
+            @media (min-width: 576px) {
+                height: 200px;
+            }
+
+            @media (min-width: 768px) {
+                height: 220px;
+            }
+
+            @media (min-width: 992px) {
+                height: 250px;
+            }
+
+            @media (min-width: 1280px) {
+                height: 280px;
+            }
+
+            @media (min-width: 1450px) {
+                height: 320px;
+            }
+        }
+    }
+}

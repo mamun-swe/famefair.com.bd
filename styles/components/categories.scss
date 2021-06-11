@@ -1,0 +1,21 @@
+.categories-container {
+    padding-top: 30px;
+
+    h5 {
+        color: #555;
+        font-weight: 600;
+        margin-bottom: 0;
+        margin-top: 10px;
+        font-size: 17px;
+        text-transform: capitalize;
+    }
+
+    .btn {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 15px;
+        border-radius: 4px;
+        background: $primary;
+    }
+}

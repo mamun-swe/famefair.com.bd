@@ -1,0 +1,33 @@
+.feature-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .feature-item {
+        // cursor: pointer;
+
+        .icon-container {
+            width: 45px;
+            height: 45px;
+            margin: auto;
+            background: #e845451f;
+
+            @media (min-width: 992px) {
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        p {
+            color: #555;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+    }
+
+    @media (min-width: 992px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}

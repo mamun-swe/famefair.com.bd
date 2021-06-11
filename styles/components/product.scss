@@ -1,0 +1,96 @@
+.product-card {
+    width: 50%;
+    float: left;
+    padding: 6px;
+    background: none;
+
+    .card-body {
+        padding: 20px;
+        cursor: pointer;
+        border-radius: 6px;
+        background: #fff;
+        transition: 0.3s all;
+
+        .img-container {
+            margin: auto;
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+
+            @media (min-width: 992px) {
+                width: 140px;
+                height: 140px;
+            }
+
+            @media (min-width: 1200px) {
+                width: 150px;
+                height: 150px;
+            }
+
+            @media (min-width: 1440px) {
+                width: 160px;
+                height: 160px;
+            }
+
+            img {
+                width: 120px;
+                height: 120px;
+                transition: 0.2s all;
+
+                @media (min-width: 992px) {
+                    width: 140px;
+                    height: 140px;
+                }
+
+                @media (min-width: 1200px) {
+                    width: 150px;
+                    height: 150px;
+                }
+
+                @media (min-width: 1440px) {
+                    width: 160px;
+                    height: 160px;
+                }
+            }
+        }
+
+        p {
+            color: #555;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 0;
+            text-align: center;
+            transition: 0.3s all;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+
+            p {
+                color: #000;
+            }
+
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        width: 33.33%;
+        padding: 8px;
+    }
+
+    @media (min-width: 992px) {
+        width: 25%;
+    }
+
+    @media (min-width: 1200px) {
+        width: 20%;
+    }
+
+    @media (min-width: 1440px) {
+        width: 16.66%;
+    }
+}

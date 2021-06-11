@@ -1,0 +1,15 @@
+$bgcolor: #f9f9f9;
+$primary: #e84545;
+$danger: #e84545;
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+@import "~bootstrap/scss/bootstrap";
+@import "./globals.scss";
+@import "./components/navbar-top.scss";
+@import "./components/navbar-bottom.scss";
+@import "./components/search.scss";
+@import "./components/carousel.scss";
+@import "./components/feature.scss";
+@import "./components/product.scss";
+@import "./components/categories.scss";

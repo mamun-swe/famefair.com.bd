@@ -1,0 +1,89 @@
+.custom-footer {
+    background: rgb(51, 51, 51);
+
+    .container {
+        padding-top: 50px;
+        padding-bottom: 30px;
+
+        h6 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #fff;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        form {
+            .form-control {
+                height: 42px;
+                font-size: 14px;
+                border-radius: 0;
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            .error {
+                border: 1px solid $danger !important;
+            }
+
+            .btn {
+                height: 42px;
+                color: #fff;
+                border-radius: 0;
+                padding-left: 15px;
+                padding-right: 15px;
+                background: $primary;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+            }
+        }
+
+        .social-links {
+            margin-top: 10px;
+
+            a {
+                font-size: 15px;
+                padding: 5px 8px;
+                display: inline-block;
+                transition: 0.3s all;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    // Copywrite
+    .copy-write {
+        padding-top: 10px;
+        padding-bottom: 9px;
+        background: #000;
+
+        .container {
+            padding-top: 0;
+            padding-bottom: 0;
+
+            p {
+                color: #c0bebe;
+                margin-bottom: 0;
+                margin-top: 11px;
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
+import Link from 'next/link';
 
-import { categories, products } from '../../utils/data'
 import Product from '../product/index'
+import { categories, products } from '../../utils/data'
 
 const index = () => {
     return (
@@ -12,7 +13,7 @@ const index = () => {
                             <div className="d-flex">
                                 <div><h5>{category.name}</h5></div>
                                 <div className="ml-auto">
-                                    <button type="button" className="btn shadow-none">View All</button>
+                                    <Link href={`/category/${category._id}`}><button type="button" className="btn shadow-none">View All</button></Link>
                                 </div>
                             </div>
                         </div>

@@ -2,9 +2,11 @@ import Head from 'next/head'
 
 import NavbarTop from '../components/navbarTop/index'
 import NavbarBottom from '../components/navbarBottom/index'
+import Footer from '../components/footer/index'
 import BannerCarousel from '../components/carousel/index'
 import Features from '../components/feature/index'
 import Categories from '../components/categories/index'
+import GotoTop from '../components/goTop/index'
 
 export default function Home() {
   return (
@@ -21,13 +23,10 @@ export default function Home() {
       <main>
         <BannerCarousel />
         <Features />
-
         <Categories />
-
-
+        <Footer />
+        <GotoTop />
       </main>
-
-
     </div>
   )
 }

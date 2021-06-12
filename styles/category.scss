@@ -1,0 +1,34 @@
+.category-index {
+    .banner-container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        .col-12 {
+            padding-left: 21px;
+            padding-right: 21px;
+
+            .banner-card {
+                overflow: hidden;
+                border-radius: 6px;
+
+                img {
+                    min-width: 100%;
+                    min-height: 100%;
+                }
+
+                @media (max-width: 576px) {
+                    height: 120px;
+                }
+
+                @media (min-width: 576px) {
+                    height: 200px;
+                }
+            }
+
+            @media (min-width: 992px) {
+                padding-left: 23px;
+                padding-right: 23px;
+            }
+        }
+    }
+}

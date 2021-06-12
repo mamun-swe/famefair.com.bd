@@ -5,11 +5,16 @@ export const carousels = [
 ]
 
 export const categories = [
-    { _id: 1, name: 'ABC' },
-    { _id: 2, name: 'ABC' },
-    { _id: 3, name: 'ABC' },
-    { _id: 4, name: 'ABC' },
-    { _id: 5, name: 'ABC' }
+    { _id: 1, name: 'ABC', banner: '/carousel/1.jpg' },
+    { _id: 2, name: 'ABC', banner: '/carousel/2.jpg' },
+    { _id: 3, name: 'ABC', banner: '/carousel/3.jpg' },
+    { _id: 4, name: 'ABC', banner: '/carousel/1.jpg' },
+    { _id: 5, name: 'ABC', banner: '/carousel/2.jpg' },
+    { _id: 6, name: 'ABC', banner: '/carousel/3.jpg' },
+    { _id: 7, name: 'ABC', banner: '/carousel/1.jpg' },
+    { _id: 8, name: 'ABC', banner: '/carousel/2.jpg' },
+    { _id: 9, name: 'ABC', banner: '/carousel/3.jpg' },
+    { _id: 10, name: 'ABC', banner: '/carousel/1.jpg' }
 ]
 
 export const products = [

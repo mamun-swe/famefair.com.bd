@@ -12,17 +12,21 @@ const index = () => {
                             <Icon icon={heart} size={25} />
                             <span className="badge">0</span>
                         </button>
+                    </div>
+                    <div>
                         <button type="button" className="btn shadow-none badge-btn">
                             <Icon icon={shoppingCart} size={25} />
                             <span className="badge">0</span>
                         </button>
+                    </div>
+                    <div>
                         <button type="button" className="btn shadow-none badge-btn">
                             <Icon icon={user} size={25} />
                         </button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

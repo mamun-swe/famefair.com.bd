@@ -1,13 +1,15 @@
-
+import { useState } from 'react'
 import Link from 'next/link'
 import { Icon } from 'react-icons-kit'
 import { useRouter } from 'next/router'
 import { heart, shoppingCart, user, menu } from 'react-icons-kit/feather'
 
 import SearchComponent from '../search/index'
+import Drawer from '../drawer/index'
 
 export default function Header() {
     const router = useRouter()
+    const [isDrawer, setDrawer] = useState(false)
 
     return (
         <div>
@@ -63,7 +65,11 @@ export default function Header() {
 
                                 {/* Menu button container */}
                                 <div className="pl-1">
-                                    <button type="button" className="btn shadow-none menu-btn rounded-circle">
+                                    <button
+                                        type="button"
+                                        className="btn shadow-none menu-btn rounded-circle"
+                                        onClick={() => setDrawer(true)}
+                                    >
                                         <Icon icon={menu} size={25} />
                                     </button>
                                 </div>
@@ -73,7 +79,10 @@ export default function Header() {
                 </div>
             </div>
 
-
+            <Drawer
+                show={isDrawer}
+                onHide={() => setDrawer(false)}
+            />
 
         </div>
     )

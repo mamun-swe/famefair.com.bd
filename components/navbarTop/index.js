@@ -42,7 +42,7 @@ export default function Header() {
                                         <span className="badge">0</span>
                                     </button>
 
-                                    <button type="button" className="btn shadow-none badge-btn" onClick={() => router.push('/account')}>
+                                    <button type="button" className="btn shadow-none badge-btn" onClick={() => router.push('/login')}>
                                         <Icon icon={user} size={21} />
                                     </button>
                                 </div>

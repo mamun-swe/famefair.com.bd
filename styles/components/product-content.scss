@@ -1,0 +1,48 @@
+.product-content-container {
+    h5 {
+        color: #555;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #555;
+        font-size: 14px;
+        margin-bottom: 5px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .small-content {
+        line-height: 1.8rem;
+    }
+
+    h6 {
+        color: #555;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .btn {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 10px 50px;
+        border-radius: 25px;
+        background: $primary;
+    }
+
+    .social-share {
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+                float: left;
+                list-style: none;
+            }
+        }
+    }
+}

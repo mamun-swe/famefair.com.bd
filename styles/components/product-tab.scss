@@ -1,0 +1,85 @@
+.product-tab {
+    .nav-tabs {
+        border: 0;
+        border-bottom: 2px solid #dfdfdf;
+
+        .nav-item {
+            border: 0;
+            color: #000;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 6px;
+            padding: 7px 12px;
+            background: none;
+            text-transform: capitalize;
+        }
+
+        .active {
+            color: $primary;
+        }
+    }
+
+    .tab-content {
+        padding-top: 15px;
+
+        h6 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.8rem;
+        }
+
+        // Review
+        .review {
+            margin-bottom: 30px;
+
+            .name-circle {
+                overflow: hidden;
+                background: $secondary;
+                min-width: 40px !important;
+                max-height: 40px !important;
+
+                h5 {
+                    font-size: 17px;
+                    color: $primary;
+                    margin-bottom: 0;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                }
+            }
+
+            .name-review-section {
+                h6 {
+                    margin-top: 3px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    margin-bottom: 0px;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+            }
+
+            p {
+                font-size: 14px;
+                margin-bottom: 0;
+                line-height: 1.5rem;
+                text-align: justify;
+            }
+
+            @media (min-width: 992px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            width: 900px;
+        }
+    }
+}

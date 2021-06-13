@@ -50,6 +50,20 @@ main {
     }
 }
 
+// form submit button
+.submit-btn {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 25px;
+    border-radius: 25px;
+    background: $primary;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
 // Custom Container
 .container {
     @media (min-width: 1440px) {

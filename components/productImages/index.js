@@ -1,7 +1,8 @@
 
 import { useState } from 'react'
 import { useWindowSize } from '../window/windowSize'
-// import ReactImageMagnify from 'react-image-magnify'
+import ReactImageMagnify from 'react-image-magnify'
+
 
 const Index = (props) => {
     const size = useWindowSize()
@@ -23,7 +24,7 @@ const Index = (props) => {
 
             {/* Large image */}
             <div className="large-image-container flex-fill">
-                {/* <ReactImageMagnify {...{
+                <ReactImageMagnify {...{
                     smallImage: {
                         alt: '...',
                         src: largeImage || props.products[0].image,
@@ -38,7 +39,7 @@ const Index = (props) => {
                         height: 1800
                     },
                     enlargedImageContainerStyle: { background: '#fff', zIndex: 9 }
-                }} /> */}
+                }} />
             </div>
 
             {/* Small images container */}

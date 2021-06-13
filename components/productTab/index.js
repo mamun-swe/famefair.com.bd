@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import { Tabs, Tab } from 'react-bootstrap'
-import { Icon } from 'react-icons-kit'
-import { checkCircle } from 'react-icons-kit/feather'
-
 import ReviewForm from '../reviewForm/index'
 
 const index = () => {

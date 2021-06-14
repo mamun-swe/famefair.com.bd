@@ -1,0 +1,48 @@
+.favorite-list-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .card {
+        overflow: hidden;
+        border-radius: 6px;
+        border: 0 !important;
+
+        .card-body {
+            .image-container {
+                width: 90px;
+                height: 90px;
+
+                img {
+                    max-width: 90px;
+                    max-height: 90px;
+                }
+            }
+
+            h6 {
+                color: #555;
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            p {
+                color: rgba(85, 85, 85, 0.719);
+                font-size: 14px;
+                margin-bottom: 0px;
+
+                span {
+                    font-weight: 600;
+                    font-size: 12px;
+                }
+            }
+
+            .btn {
+                transition: 0.3s all;
+
+                &:hover {
+                    color: $danger;
+                }
+            }
+        }
+    }
+}

@@ -53,16 +53,17 @@ const index = () => {
                             <div className="col-12">
                                 <div className="card shadow-sm border-0">
                                     <div className="card-header text-center bg-white">
-                                        <h5 className="mb-0">Register</h5>
+                                        <h5 className="mb-2">Register</h5>
+                                        <p>New to Famefair ? Create account.</p>
                                     </div>
                                     <div className="card-body">
                                         <form onSubmit={handleSubmit(onSubmit)}>
 
                                             {/* Name */}
-                                            <div className="form-group mb-3">
-                                                {errors.name && errors.name.message ? (
+                                            <div className="form-group mb-4">
+                                                {errors.name && errors.name.message ?
                                                     <small className="text-danger">{errors.name && errors.name.message}</small>
-                                                ) : <small>Name</small>}
+                                                    : <small>Name</small>}
 
                                                 <input
                                                     type="text"
@@ -72,11 +73,12 @@ const index = () => {
                                                 />
                                             </div>
 
+
                                             {/* E-mail */}
-                                            <div className="form-group mb-3">
-                                                {errors.email && errors.email.message ? (
+                                            <div className="form-group mb-4">
+                                                {errors.email && errors.email.message ?
                                                     <small className="text-danger">{errors.email && errors.email.message}</small>
-                                                ) : <small>E-mail</small>}
+                                                    : <small>E-mail</small>}
 
                                                 <input
                                                     type="text"
@@ -91,11 +93,12 @@ const index = () => {
                                                 />
                                             </div>
 
+
                                             {/* Password */}
-                                            <div className="form-group mb-3">
-                                                {errors.password && errors.password.message ? (
+                                            <div className="form-group mb-4">
+                                                {errors.password && errors.password.message ?
                                                     <small className="text-danger">{errors.password && errors.password.message}</small>
-                                                ) : <small>Password</small>}
+                                                    : <small>Password</small>}
 
                                                 <input
                                                     type="password"
@@ -111,13 +114,13 @@ const index = () => {
                                                 />
                                             </div>
 
+
                                             <button type="submit" className="btn btn-block shadow-none" disabled={isLoading}>
                                                 {isLoading ? <span>Loading...</span> : <span>Submit</span>}
                                             </button>
-
                                         </form>
 
-                                        <div className="text-right mt-1">
+                                        <div className="text-right mt-4">
                                             <p>Already have an account ? <Link href="/login">Login</Link></p>
                                         </div>
                                     </div>

@@ -4,7 +4,7 @@ import { chevronRight } from 'react-icons-kit/feather'
 
 const Index = (props) => {
     return (
-        <div className="custom-drawer-container">
+        <div className="custom-drawer-container d-lg-none">
 
             {/* Backdrop */}
             <div className={props.show ? "backdrop open-backdrop" : "backdrop"} onClick={props.onHide}></div>

@@ -33,7 +33,7 @@ export default function Header() {
 
                                 {/* Buttons */}
                                 <div className="button-container">
-                                    <button type="button" className="btn shadow-none badge-btn favourite-btn" onClick={() => router.push('/wishlist')}>
+                                    <button type="button" className="btn shadow-none badge-btn favourite-btn" onClick={() => router.push('/favorite-list')}>
                                         <Icon icon={heart} size={20} />
                                         <span className="badge">1</span>
                                     </button>

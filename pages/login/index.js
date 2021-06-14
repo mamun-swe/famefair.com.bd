@@ -54,16 +54,17 @@ const index = () => {
                             <div className="col-12">
                                 <div className="card shadow-sm border-0">
                                     <div className="card-header text-center bg-white">
-                                        <h5 className="mb-0">Login</h5>
+                                        <h5 className="mb-2">Login</h5>
+                                        <p>Login your account</p>
                                     </div>
                                     <div className="card-body">
                                         <form onSubmit={handleSubmit(onSubmit)}>
 
                                             {/* E-mail */}
-                                            <div className="form-group mb-3">
-                                                {errors.email && errors.email.message ? (
+                                            <div className="form-group mb-4">
+                                                {errors.email && errors.email.message ?
                                                     <small className="text-danger">{errors.email && errors.email.message}</small>
-                                                ) : <small>E-mail</small>}
+                                                    : <small>E-mail</small>}
 
                                                 <input
                                                     type="text"
@@ -78,11 +79,12 @@ const index = () => {
                                                 />
                                             </div>
 
+
                                             {/* Password */}
-                                            <div className="form-group mb-3">
-                                                {errors.password && errors.password.message ? (
+                                            <div className="form-group mb-4">
+                                                {errors.password && errors.password.message ?
                                                     <small className="text-danger">{errors.password && errors.password.message}</small>
-                                                ) : <small>Password</small>}
+                                                    : <small>Password</small>}
 
                                                 <input
                                                     type="password"
@@ -101,10 +103,9 @@ const index = () => {
                                             <button type="submit" className="btn btn-block shadow-none" disabled={isLoading}>
                                                 {isLoading ? <span>Loading...</span> : <span>Submit</span>}
                                             </button>
-
                                         </form>
 
-                                        <div className="text-right mt-1">
+                                        <div className="text-right mt-4">
                                             <p className="mb-1">Have no account ? <Link href="/register">Register</Link></p>
                                             <p>Forgot password ? <Link href="/reset">Reset</Link></p>
                                         </div>

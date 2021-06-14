@@ -59,7 +59,7 @@ const index = () => {
             {/* Auth container */}
             <main>
                 <div className="auth-container">
-                    <div className="container">
+                    <div className="container reset-container">
                         <div className="row">
                             <div className="col-12">
                                 <div className="card shadow-sm border-0">
@@ -71,10 +71,10 @@ const index = () => {
                                         <form onSubmit={handleSubmit(onSubmit)}>
 
                                             {/* E-mail */}
-                                            <div className="form-group mb-3">
-                                                {errors.email && errors.email.message ? (
+                                            <div className="form-group mb-4">
+                                                {errors.email && errors.email.message ?
                                                     <small className="text-danger">{errors.email && errors.email.message}</small>
-                                                ) : <small>E-mail</small>}
+                                                    : <small>E-mail</small>}
 
                                                 <input
                                                     type="text"
@@ -93,11 +93,10 @@ const index = () => {
                                             <button type="submit" className="btn btn-block shadow-none" disabled={isLoading}>
                                                 {isLoading ? <span>Loading...</span> : <span>Reset</span>}
                                             </button>
-
                                         </form>
 
-                                        <div className="text-right mt-1">
-                                            <p className="mb-1">Go to <Link href="/login">Login</Link></p>
+                                        <div className="text-right mt-4">
+                                            <p className="mb-1">Back to <Link href="/login">Login</Link></p>
                                         </div>
                                     </div>
                                 </div>

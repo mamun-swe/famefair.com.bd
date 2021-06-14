@@ -1,14 +1,17 @@
 import { Icon } from 'react-icons-kit'
+import { useRouter } from 'next/router'
 import { heart, shoppingCart, user } from 'react-icons-kit/feather'
 
 const index = () => {
+    const router = useRouter()
+
     return (
         <div>
             {/* Navbar footer fixed in mobile */}
             <div className="navbar-fixed-footer d-lg-none">
                 <div className="d-flex justify-content-between button-container">
                     <div>
-                        <button type="button" className="btn shadow-none badge-btn">
+                        <button type="button" className="btn shadow-none badge-btn" onClick={() => router.push('/favorite-list')}>
                             <Icon icon={heart} size={25} />
                             <span className="badge">0</span>
                         </button>

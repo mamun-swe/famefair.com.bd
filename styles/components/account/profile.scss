@@ -1,0 +1,79 @@
+.profile-card-container {
+    .card {
+        overflow: hidden;
+        border-radius: 6px;
+
+        .card-header {
+            // Image container
+            .image-container {
+                position: relative;
+
+                .image {
+                    margin: auto;
+                    width: 100px;
+                    height: 100px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    border: 1px solid #dfdfdf;
+
+                    img {
+                        min-width: 100px;
+                        min-height: 100px;
+                    }
+                }
+
+                .btn {
+                    bottom: -10px;
+                    padding: 3px 7px;
+                    position: absolute;
+                    background: #fff;
+                    transition: 0.3s all;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+
+            // Content container
+            .content-container {
+                padding-top: 30px;
+                text-align: center;
+
+                h6 {
+                    font-size: 18px;
+                    margin-bottom: 5px;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    font-size: 14px;
+                    margin-bottom: 2px;
+                }
+            }
+        }
+
+        .card-body {
+            .btn-container {
+                overflow: hidden;
+                border-radius: 5px;
+
+                .btn {
+                    margin: 0;
+                    font-size: 14px;
+                    border-radius: 0;
+                    font-weight: bold;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    transition: 0.3s all;
+                    background: #dfdfdf59;
+                    border-bottom: 1px solid #fff;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}

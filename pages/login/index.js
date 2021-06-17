@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -10,6 +11,7 @@ import Footer from '../../components/footer/index'
 import GotoTop from '../../components/goTop/index'
 
 const index = () => {
+    const router = useRouter()
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [isLoading, setLoading] = useState(false)
 
@@ -20,6 +22,7 @@ const index = () => {
 
             setTimeout(() => {
                 setLoading(false)
+                router.push('/account')
             }, 1500);
             // const response = await login(data)
             // if (response.status === true) {

@@ -54,24 +54,24 @@
         }
 
         .card-body {
-            .btn-container {
-                overflow: hidden;
-                border-radius: 5px;
+            .btn {
+                color: #555;
+                margin: 0;
+                font-size: 14px;
+                border-radius: 0;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                transition: 0.3s all;
+                text-align: left;
+                padding-left: 15px;
 
-                .btn {
-                    margin: 0;
-                    font-size: 14px;
-                    border-radius: 0;
-                    font-weight: bold;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
-                    transition: 0.3s all;
+                i {
+                    margin-right: 10px;
+                }
+
+                &:hover {
+                    color: #000;
                     background: #dfdfdf59;
-                    border-bottom: 1px solid #fff;
-
-                    &:hover {
-                        color: $primary;
-                    }
                 }
             }
         }

@@ -3,13 +3,58 @@
         width: 100%;
 
         @media (min-width: 992px) {
-            width: 320px !important;
+            width: 300px !important;
         }
     }
 
     .data-container {
         .card {
+            overflow: hidden;
             border-radius: 6px;
+
+            .card-header {
+                h6 {
+                    color: #555;
+                    font-weight: 600;
+                }
+            }
+
+            .card-body {
+                min-height: 460px;
+
+                .item-container {
+                    width: 50%;
+                    float: left;
+                    padding: 5px;
+
+                    .item-body {
+                        width: 100%;
+                        padding: 10px;
+                        min-height: 120px;
+                        border-radius: 6px;
+                        border: 1px solid #dfdfdf;
+
+                        p {
+                            color: #555;
+                            font-size: 15px;
+                            margin-bottom: 15px;
+                        }
+
+                        h5 {
+                            margin-bottom: 0;
+                            font-weight: 600;
+                        }
+
+                        @media (min-width: 576px) {
+                            padding: 20px;
+                        }
+                    }
+
+                    @media (min-width: 992px) {
+                        width: 25%;
+                    }
+                }
+            }
         }
     }
 }

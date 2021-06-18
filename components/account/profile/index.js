@@ -81,6 +81,7 @@ const index = () => {
                     <button
                         type="button"
                         className="btn shadow-none btn-block"
+                        onClick={() => router.push('/')}
                     >
                         <Icon icon={logOut} size={18} />Logout
                     </button>

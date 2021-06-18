@@ -3,7 +3,12 @@ import Head from 'next/head'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
+import Footer from '../../components/footer/index'
 import ProfileComponent from '../../components/account/profile/index'
+import EmptyComponent from '../../components/empty/index'
+import ReviewTable from '../../components/account/review/index'
+
+import { reviews } from '../../utils/data'
 
 const Review = () => {
     return (
@@ -28,8 +33,11 @@ const Review = () => {
                                         <div className="card-header bg-white p-4">
                                             <h6 className="mb-0">Review</h6>
                                         </div>
-                                        <div className="card-body p-3">
-
+                                        <div className="card-body p-0">
+                                            {reviews && reviews.length ?
+                                                <ReviewTable reviews={reviews} /> :
+                                                <EmptyComponent message={'No reviews available.'} />
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -37,6 +45,8 @@ const Review = () => {
                         </div>
                     </div>
                 </div>
+
+                <Footer />
             </main>
         </div>
     );

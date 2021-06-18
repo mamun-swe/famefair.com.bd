@@ -12,6 +12,12 @@ import {
 
 const index = () => {
     const router = useRouter()
+    const path = router.pathname
+
+    const isActive = activePath => {
+        if (activePath === path) return true
+        return false
+    }
 
     return (
         <div className="profile-card-container">
@@ -39,36 +45,36 @@ const index = () => {
                 <div className="card-body px-0 pt-0">
                     <button
                         type="button"
-                        className="btn shadow-none btn-block"
                         onClick={() => router.push('/account')}
+                        className={isActive("/account") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
                     >
                         <Icon icon={grid} size={18} />Dashboard
                     </button>
                     <button
                         type="button"
-                        className="btn shadow-none btn-block"
                         onClick={() => router.push('/account/order-list')}
+                        className={isActive("/account/order-list") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
                     >
                         <Icon icon={pieChart} size={18} />Order List
                     </button>
                     <button
                         type="button"
-                        className="btn shadow-none btn-block"
                         onClick={() => router.push('/account/review')}
+                        className={isActive("/account/review") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
                     >
                         <Icon icon={clock} size={18} />Review
                     </button>
                     <button
                         type="button"
-                        className="btn shadow-none btn-block"
                         onClick={() => router.push('/account/basic-information')}
+                        className={isActive("/account/basic-information") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
                     >
                         <Icon icon={user} size={18} />Basic Information
                     </button>
                     <button
                         type="button"
-                        className="btn shadow-none btn-block"
                         onClick={() => router.push('/account/change-password')}
+                        className={isActive("/account/change-password") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
                     >
                         <Icon icon={settings} size={18} />Change Password
                     </button>

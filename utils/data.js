@@ -31,3 +31,41 @@ export const products = [
     { _id: 11, name: "Product 11", image: "/products/3.jpg" },
     { _id: 12, name: "Product 12", image: "/products/4.jpg" }
 ]
+
+export const reviews = [
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    },
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    },
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    },
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    },
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    },
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    },
+    {
+        product: 'ABC product',
+        rating: 4.5,
+        review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
+    }
+]

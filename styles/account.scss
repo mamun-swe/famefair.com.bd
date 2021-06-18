@@ -3,7 +3,8 @@
         width: 100%;
 
         @media (min-width: 992px) {
-            width: 300px !important;
+            min-width: 300px !important;
+            max-width: 300px !important;
         }
     }
 
@@ -54,6 +55,17 @@
                         width: 25%;
                     }
                 }
+            }
+        }
+    }
+
+    // change-password-container
+    .change-password-container {
+        .form-container {
+            width: 100%;
+
+            @media (min-width: 992px) {
+                width: 350px;
             }
         }
     }

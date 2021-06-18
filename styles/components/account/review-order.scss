@@ -1,0 +1,59 @@
+// custom-review-table
+.custom-review-table {
+    thead {
+        tr {
+            td {
+                color: #555;
+                font-size: 13px;
+                font-weight: 600;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #dfdfdf;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #dfdfdf;
+
+                h6 {
+                    color: #555;
+                    cursor: pointer;
+                    font-size: 15px;
+                    margin-bottom: 12px;
+
+                    &:hover {
+                        color: #28c76f;
+                    }
+                }
+
+                p {
+                    color: #555;
+                    font-size: 14px;
+                    margin-bottom: 0;
+                    line-height: 1.6rem;
+                }
+            }
+        }
+    }
+
+    .approved {
+        color: #28c76f;
+        font-size: 13px;
+        padding: 8px 15px;
+        border-radius: 25px;
+        background: #28c76f21;
+    }
+
+    .pending {
+        color: #ea5455;
+        font-size: 13px;
+        padding: 8px 15px;
+        border-radius: 25px;
+        background: #ea545421;
+    }
+}

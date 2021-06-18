@@ -1,0 +1,25 @@
+.basic-info {
+    .card {
+        .card-body {
+            p {
+                color: #555;
+                font-size: 15px;
+                margin-bottom: 8px;
+                text-transform: capitalize;
+            }
+
+            .edit-btn {
+                color: #fff;
+                font-size: 14px;
+                font-weight: 700;
+                padding: 8px 25px;
+                border-radius: 25px;
+                background: $primary;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

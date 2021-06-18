@@ -30,7 +30,6 @@ const index = () => {
             // }
         } catch (error) {
             setLoading(false)
-            toast.error(error)
         }
     }
 

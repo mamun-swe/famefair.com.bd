@@ -10,6 +10,7 @@ import {
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
+import Footer from '../../components/footer/index'
 import ProfileComponent from '../../components/account/profile/index'
 
 const index = () => {
@@ -72,6 +73,8 @@ const index = () => {
                         </div>
                     </div>
                 </div>
+
+                <Footer />
             </main>
         </div>
     );

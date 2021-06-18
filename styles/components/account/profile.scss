@@ -59,20 +59,20 @@
                 margin: 0;
                 font-size: 14px;
                 border-radius: 0;
+                text-align: left;
                 padding-top: 10px;
+                padding-left: 15px;
                 padding-bottom: 10px;
                 transition: 0.3s all;
-                text-align: left;
-                padding-left: 15px;
 
                 i {
                     margin-right: 10px;
                 }
+            }
 
-                &:hover {
-                    color: #000;
-                    background: #dfdfdf59;
-                }
+            .active {
+                color: #000;
+                background: #dfdfdf59;
             }
         }
     }

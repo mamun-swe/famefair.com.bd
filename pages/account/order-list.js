@@ -3,7 +3,9 @@ import Head from 'next/head'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
+import Footer from '../../components/footer/index'
 import ProfileComponent from '../../components/account/profile/index'
+import EmptyComponent from '../../components/empty/index'
 
 const OrderList = () => {
     return (
@@ -29,7 +31,7 @@ const OrderList = () => {
                                             <h6 className="mb-0">Order List</h6>
                                         </div>
                                         <div className="card-body p-3">
-
+                                            <EmptyComponent message={'No orders available.'} />
                                         </div>
                                     </div>
                                 </div>
@@ -37,6 +39,8 @@ const OrderList = () => {
                         </div>
                     </div>
                 </div>
+
+                <Footer/>
             </main>
         </div>
     );

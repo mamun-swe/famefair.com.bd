@@ -48,6 +48,10 @@ main {
         min-height: 40px;
         box-shadow: none !important;
     }
+
+    .error {
+        border: 1px solid $danger !important;
+    }
 }
 
 // form submit button
@@ -61,6 +65,20 @@ main {
 
     &:hover {
         color: #fff;
+    }
+}
+
+// Danger button
+.danger-btn {
+    color: $danger;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 25px;
+    border-radius: 25px;
+    background: $secondary;
+
+    &:hover {
+        color: $danger;
     }
 }
 

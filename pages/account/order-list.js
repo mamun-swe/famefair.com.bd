@@ -6,6 +6,9 @@ import NavbarBottom from '../../components/navbarBottom/index'
 import Footer from '../../components/footer/index'
 import ProfileComponent from '../../components/account/profile/index'
 import EmptyComponent from '../../components/empty/index'
+import OrderTable from '../../components/account/order/index'
+
+import { orders } from '../../utils/data'
 
 const OrderList = () => {
     return (
@@ -30,8 +33,9 @@ const OrderList = () => {
                                         <div className="card-header bg-white p-4">
                                             <h6 className="mb-0">Order List</h6>
                                         </div>
-                                        <div className="card-body p-3">
-                                            <EmptyComponent message={'No orders available.'} />
+                                        <div className="card-body p-0">
+                                            {/* <EmptyComponent message={'No orders available.'} /> */}
+                                            <OrderTable orders={orders} />
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +44,7 @@ const OrderList = () => {
                     </div>
                 </div>
 
-                <Footer/>
+                <Footer />
             </main>
         </div>
     );

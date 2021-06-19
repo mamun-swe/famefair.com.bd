@@ -20,40 +20,36 @@
                 padding-bottom: 15px;
                 border-bottom: 1px solid #dfdfdf;
 
-                h6 {
-                    color: #555;
+                .link-text {
                     cursor: pointer;
-                    font-size: 15px;
-                    margin-bottom: 12px;
-
-                    &:hover {
-                        color: #28c76f;
-                    }
+                    font-size: 14px;
                 }
 
                 p {
                     color: #555;
-                    font-size: 14px;
+                    font-size: 13px;
                     margin-bottom: 0;
                     line-height: 1.6rem;
                 }
+
+                .approved {
+                    color: #28c76f;
+                    font-size: 11px;
+                    padding: 6px 12px;
+                    border-radius: 25px;
+                    background: #28c76f21;
+                    text-transform: uppercase;
+                }
+
+                .pending {
+                    color: #ea5455;
+                    font-size: 11px;
+                    padding: 6px 12px;
+                    border-radius: 25px;
+                    background: #ea545421;
+                    text-transform: uppercase;
+                }
             }
         }
-    }
-
-    .approved {
-        color: #28c76f;
-        font-size: 13px;
-        padding: 8px 15px;
-        border-radius: 25px;
-        background: #28c76f21;
-    }
-
-    .pending {
-        color: #ea5455;
-        font-size: 13px;
-        padding: 8px 15px;
-        border-radius: 25px;
-        background: #ea545421;
     }
 }

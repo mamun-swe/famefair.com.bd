@@ -69,3 +69,34 @@ export const reviews = [
         review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia."
     }
 ]
+
+export const orders = [
+    {
+        orderId: 'FF12357',
+        date: '19 Jun 2021, 07:02 PM',
+        amount: 5001,
+        payment: 'paid',
+        status: 'pending'
+    },
+    {
+        orderId: 'FF12357',
+        date: '19 Jun 2021, 07:02 PM',
+        amount: 5001,
+        payment: 'unpaid',
+        status: 'pending'
+    },
+    {
+        orderId: 'FF12357',
+        date: '19 Jun 2021, 07:02 PM',
+        amount: 5001,
+        payment: 'paid',
+        status: 'pending'
+    },
+    {
+        orderId: 'FF12357',
+        date: '19 Jun 2021, 07:02 PM',
+        amount: 5001,
+        payment: 'unpaid',
+        status: 'pending'
+    },
+]

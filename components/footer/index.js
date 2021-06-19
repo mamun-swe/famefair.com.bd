@@ -5,7 +5,7 @@ import { Icon } from 'react-icons-kit'
 import { useForm } from 'react-hook-form'
 import { ic_place } from 'react-icons-kit/md'
 import { phone, mail, send } from 'react-icons-kit/feather'
-import { facebook, twitter, youtubePlay, instagram, linkedin, whatsapp } from 'react-icons-kit/fa'
+import { facebook, youtubePlay, instagram, linkedin } from 'react-icons-kit/fa'
 import { loading } from 'react-icons-kit/ikons'
 // import { Subscribe } from '../../pages/api/index'
 
@@ -63,13 +63,11 @@ const index = () => {
                             {/* My account */}
                             <div className="col-lg-4 mb-4 mb-lg-0">
                                 <h6>My Account</h6>
-                                <Link href="/account/account-details">Account Details</Link>
-                                <Link href="/account/change-password">Change Password</Link>
                                 <Link href="/account">Dashboard</Link>
-                                <Link href="/account/review">My Review</Link>
-                                <Link href="/account/orders">Orders</Link>
-                                <Link href="/account/purchased">Purchased Products</Link>
-                                <Link href="/account/shipping-address">Shipping Addresses</Link>
+                                <Link href="/account/account-details">Order List</Link>
+                                <Link href="/account/change-password">Review</Link>
+                                <Link href="/account/review">Basic Information</Link>
+                                <Link href="/account/orders">Change Password</Link>
                             </div>
                         </div>
                     </div>
@@ -78,7 +76,7 @@ const index = () => {
                         {/* Subscribe */}
                         <div>
                             <h6>Subscribe now</h6>
-                            <p>Love Famefair? Subscribe to our newsletter to get instant update when we add a product or start a campaign. You may also get coupons.</p>
+                            <p>Love Famefair ? Subscribe to our newsletter to get instant update when we add a product or start a campaign. You may also get coupons.</p>
 
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="d-flex">
@@ -106,11 +104,9 @@ const index = () => {
                             {/* Social links */}
                             <div className="social-links">
                                 <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={facebook} size={18} /></a>
-                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={twitter} size={20} /></a>
                                 <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={youtubePlay} size={20} /></a>
                                 <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={instagram} size={20} /></a>
                                 <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={linkedin} size={20} /></a>
-                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={whatsapp} size={20} /></a>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,22 @@
+// search-results-container
+.search-results-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .header-column {
+        padding-left: 21px;
+        padding-right: 21px;
+
+        .card {
+            h6 {
+                color: #555;
+                font-weight: 600;
+            }
+        }
+
+        @media (min-width: 992px) {
+            padding-left: 23px;
+            padding-right: 23px;
+        }
+    }
+}

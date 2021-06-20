@@ -1,10 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Icon } from 'react-icons-kit'
 import { search } from 'react-icons-kit/feather'
-// import { searchSuggest } from '../../pages/api/index'
 import { ic_call_made } from 'react-icons-kit/md'
 import { useRouter } from 'next/router'
-
 
 const Index = () => {
     const router = useRouter()
@@ -72,8 +70,8 @@ const Index = () => {
             setShow(false)
 
             let name = query
-            name = name.replace(/ /g, "-")
-            router.push(`/search/${name}`)
+            name = name.replace(/ /g, "+")
+            router.push(`/search-results?page=1&query=${name}`)
         }
     }
 

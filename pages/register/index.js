@@ -20,6 +20,7 @@ const index = () => {
 
             setTimeout(() => {
                 setLoading(false)
+                reset()
             }, 1500);
             // setRegData(data)
 
@@ -73,22 +74,17 @@ const index = () => {
                                             </div>
 
 
-                                            {/* E-mail */}
+                                            {/* Phone */}
                                             <div className="form-group mb-4">
-                                                {errors.email && errors.email.message ?
-                                                    <small className="text-danger">{errors.email && errors.email.message}</small>
-                                                    : <small>E-mail</small>}
+                                                {errors.phone && errors.phone.message ?
+                                                    <small className="text-danger">{errors.phone && errors.phone.message}</small>
+                                                    : <small>Phone</small>}
 
                                                 <input
                                                     type="text"
-                                                    className={errors.email ? "form-control shadow-none error" : "form-control shadow-none"}
-                                                    placeholder="example@gmail.com"
-                                                    {...register("email",
-                                                        {
-                                                            required: "E-mail is required",
-                                                            pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i }
-                                                        })
-                                                    }
+                                                    className={errors.phone ? "form-control shadow-none error" : "form-control shadow-none"}
+                                                    placeholder="01XXXXXXXXX"
+                                                    {...register("phone", { required: "Phone is required" })}
                                                 />
                                             </div>
 

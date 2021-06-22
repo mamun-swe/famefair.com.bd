@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import { Icon } from 'react-icons-kit'
 import { useRouter } from 'next/router'
 import { heart, shoppingCart, user } from 'react-icons-kit/feather'
 
+import CartComponent from '../cart/index'
+
 const index = () => {
     const router = useRouter()
+    const [isCart, setCart] = useState(false)
 
     return (
         <div>
@@ -29,7 +33,11 @@ const index = () => {
                     </div>
 
                     <div className="ml-auto">
-                        <button type="button" className="btn shadow-none badge-btn">
+                        <button
+                            type="button"
+                            className="btn shadow-none badge-btn"
+                            onClick={() => setCart(true)}
+                        >
                             <Icon icon={shoppingCart} size={23} />
                             <span className="badge">0</span>
                         </button>
@@ -43,7 +51,15 @@ const index = () => {
                     </div>
                 </div>
             </div>
-        </div >
+
+            {/* Shopping cart */}
+            {isCart ?
+                <CartComponent
+                    show={isCart}
+                    onHide={() => setCart(false)}
+                />
+                : null}
+        </div>
     );
 };
 

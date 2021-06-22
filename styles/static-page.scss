@@ -1,0 +1,20 @@
+.static-page {
+    .card {
+        border-radius: 6px;
+        overflow: hidden;
+
+        .card-header {
+            h5 {
+                color: #555;
+                font-weight: 700;
+            }
+        }
+
+        .card-body {
+            p {
+                font-size: 15px;
+                line-height: 1.8rem;
+            }
+        }
+    }
+}

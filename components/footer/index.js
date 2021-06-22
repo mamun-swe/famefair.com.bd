@@ -54,8 +54,6 @@ const index = () => {
                                 <h6>Policy & Info</h6>
                                 <Link href={`/about-us`}>About Us</Link>
                                 <Link href={`/privacy-policy`}>Privacy Policy</Link>
-                                <Link href={`/cookie-policy`}>Cookie Policy</Link>
-                                <Link href={`/why-shop-on-famefair`}>Why Shop on Famefair</Link>
                                 <Link href={`/terms-and-conditions`}>Terms Conditions</Link>
                                 <Link href={`/faq`}>FAQs</Link>
                             </div>
@@ -64,10 +62,8 @@ const index = () => {
                             <div className="col-lg-4 mb-4 mb-lg-0">
                                 <h6>My Account</h6>
                                 <Link href="/account">Dashboard</Link>
-                                <Link href="/account/account-details">Order List</Link>
-                                <Link href="/account/change-password">Review</Link>
-                                <Link href="/account/review">Basic Information</Link>
-                                <Link href="/account/orders">Change Password</Link>
+                                <Link href="/account/order-list">Order List</Link>
+                                <Link href="/account/review">Review</Link>
                             </div>
                         </div>
                     </div>

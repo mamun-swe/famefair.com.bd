@@ -4,11 +4,14 @@ import { Icon } from 'react-icons-kit'
 import { useRouter } from 'next/router'
 import { heart, shoppingCart, user, menu } from 'react-icons-kit/feather'
 
-import SearchComponent from '../search/index'
 import Drawer from '../drawer/index'
+import CartComponent from '../cart/index'
+import SearchComponent from '../search/index'
+
 
 export default function Header() {
     const router = useRouter()
+    const [isCart, setCart] = useState(false)
     const [isDrawer, setDrawer] = useState(false)
 
     return (
@@ -33,16 +36,28 @@ export default function Header() {
 
                                 {/* Buttons */}
                                 <div className="button-container">
-                                    <button type="button" className="btn shadow-none badge-btn favourite-btn" onClick={() => router.push('/favorite-list')}>
+                                    <button
+                                        type="button"
+                                        className="btn shadow-none badge-btn favourite-btn"
+                                        onClick={() => router.push('/favorite-list')}
+                                    >
                                         <Icon icon={heart} size={20} />
                                         <span className="badge">1</span>
                                     </button>
-                                    <button type="button" className="btn shadow-none badge-btn">
+                                    <button
+                                        type="button"
+                                        className="btn shadow-none badge-btn"
+                                        onClick={() => setCart(true)}
+                                    >
                                         <Icon icon={shoppingCart} size={20} />
                                         <span className="badge">0</span>
                                     </button>
 
-                                    <button type="button" className="btn shadow-none badge-btn" onClick={() => router.push('/login')}>
+                                    <button
+                                        type="button"
+                                        className="btn shadow-none badge-btn"
+                                        onClick={() => router.push('/login')}
+                                    >
                                         <Icon icon={user} size={21} />
                                     </button>
                                 </div>
@@ -79,10 +94,19 @@ export default function Header() {
                 </div>
             </div>
 
+            {/* Sidebar drawer */}
             <Drawer
                 show={isDrawer}
                 onHide={() => setDrawer(false)}
             />
+
+            {/* Shopping cart */}
+            {isCart ?
+                <CartComponent
+                    show={isCart}
+                    onHide={() => setCart(false)}
+                />
+                : null}
 
         </div>
     )

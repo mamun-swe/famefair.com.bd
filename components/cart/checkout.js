@@ -33,7 +33,8 @@ const Checkout = (props) => {
 
             const formData = {
                 ...data,
-                area: area.value
+                area: area.value,
+                products: props.products
             }
 
             setLoading(true)

@@ -1,17 +1,38 @@
 
 import Head from 'next/head'
+import { useEffect } from 'react'
 import { Icon } from 'react-icons-kit'
+import { x } from 'react-icons-kit/feather'
+import {
+    wishListProducts,
+    removeFromList
+} from '../../redux/Actions/wishlist'
+import { addProduct } from '../../redux/Actions/cart'
+import { useSelector, useDispatch } from 'react-redux'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
 import Footer from '../../components/footer/index'
 import GotoTop from '../../components/goTop/index'
-
-import { products } from '../../utils/data'
-import { x } from 'react-icons-kit/feather'
+import EmptyComponent from '../../components/empty/index'
 
 const index = () => {
+    const dispatch = useDispatch()
+    const { products } = useSelector((state => state.wishlist))
     const lastItem = products.length - 1
+
+    useEffect(() => {
+        dispatch(wishListProducts())
+    }, [dispatch])
+
+    // Remove item from list
+    const removeItem = id => dispatch(removeFromList(id))
+
+    // Return to cart
+    const returnToCart = data => {
+        dispatch(addProduct(data))
+        removeItem(data._id)
+    }
 
     return (
         <div>
@@ -30,30 +51,40 @@ const index = () => {
                             <div className="col-12">
                                 <div className="card shadow-sm">
 
-                                    {products && products.map((item, i) =>
-                                        <div
-                                            key={i}
-                                            className={i === lastItem ? "card-body p-2 py-3 p-lg-4" : "card-body p-2 py-3 p-lg-4 border-bottom"}
-                                        >
-                                            <div className="d-flex">
-                                                <div className="image-container">
-                                                    <img src={item.image} className="img-fluid" alt={item.name} />
-                                                </div>
+                                    {products && products.length ?
+                                        products && products.map((item, i) =>
+                                            <div
+                                                key={i}
+                                                className={i === lastItem ? "card-body p-2 py-3 p-lg-4" : "card-body p-2 py-3 p-lg-4 border-bottom"}
+                                            >
+                                                <div className="d-md-flex">
+                                                    <div className="image-container">
+                                                        <img src={item.image} className="img-fluid" alt={item.name} />
+                                                    </div>
 
-                                                <div className="flex-fill px-2 px-lg-4">
-                                                    <h6>{item.name}</h6>
-                                                    <p><span>SKU</span> sku</p>
-                                                    <p><span>BRAND</span> brand</p>
-                                                </div>
+                                                    <div className="flex-fill px-2 px-lg-4">
+                                                        <h6>{item.name}</h6>
+                                                        <p><span>SKU :</span> {item.sku}</p>
+                                                        <p><span>BRAND :</span> {item.brand ? item.brand : 'N/A'}</p>
+                                                    </div>
 
-                                                <div>
-                                                    <button type="button" className="btn shadow-none">
-                                                        <Icon icon={x} size={15} />
-                                                    </button>
+                                                    <div className="text-right pl-2 pl-lg-0">
+                                                        <button
+                                                            type="button"
+                                                            className="btn shadow-none cart-btn"
+                                                            onClick={() => returnToCart(item)}
+                                                        >Add to cart</button>
+                                                        <button
+                                                            type="button"
+                                                            className="btn shadow-none remove-btn ml-2"
+                                                            onClick={() => removeItem(item._id)}
+                                                        >
+                                                            <Icon icon={x} size={20} />
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        ) : <EmptyComponent message={'No products in wishlist.'} />}
 
                                 </div>
                             </div>

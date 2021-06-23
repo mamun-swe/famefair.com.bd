@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -11,6 +12,12 @@ import ProductTab from '../../components/productTab/index'
 import { products } from '../../utils/data'
 
 export default function Product() {
+    let product
+    const router = useRouter()
+    const slug = router.query.slug
+
+    if (slug) product = products.find(x => x._id === parseInt(slug))
+
     return (
         <div className="product-show">
             <Head>
@@ -35,7 +42,7 @@ export default function Product() {
                         <div className="col-12 col-lg-5 pl-lg-2">
                             <div className="card border-0 shadow-sm" style={card}>
                                 <div className="card-body p-lg-4">
-                                    <ProductContent data={products[0]} />
+                                    <ProductContent data={product} />
                                 </div>
                             </div>
                         </div>

@@ -1,16 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Icon from 'react-icons-kit'
 import {
     ic_clear,
     ic_expand_less,
     ic_expand_more
 } from 'react-icons-kit/md'
+import {
+    removeProduct,
+    incrementQuantity,
+    decrementQuantity
+} from '../../redux/Actions/cart'
+import { addWistlist } from '../../redux/Actions/wishlist'
+import { useDispatch } from 'react-redux'
 
-const Products = (props) => {
+const Products = ({ products }) => {
+    const dispatch = useDispatch()
+
+    // Return to wishlist
+    const returnToWishlist = data => {
+        dispatch(addWistlist(data))
+        dispatch(removeProduct(data._id))
+    }
+
     return (
         <div className="cart-items-container">
-            {props.products && props.products.length ?
-                props.products.map((product, i) =>
+            {products && products.length ?
+                products.map((product, i) =>
                     <div className="cart-item d-flex border-bottom p-2" key={i}>
 
                         {/* Quantity Inc Desc container */}
@@ -20,19 +35,19 @@ const Products = (props) => {
                                     <button
                                         type="button"
                                         className="btn btn-sm shadow-none"
-                                    // onClick={() => dispatch(incrementQuantity(product._id))}
-                                    // disabled={product.quantity >= product.stockAmount ? true : false}
+                                        onClick={() => dispatch(incrementQuantity(product._id))}
+                                        disabled={product.quantity >= product.stock_amount ? true : false}
                                     >
                                         <Icon icon={ic_expand_less} className="icon" size={18} />
                                     </button>
                                 </li>
-                                <li><p>{10}</p></li>
+                                <li><p>{product.quantity}</p></li>
                                 <li>
                                     <button
                                         type="button"
                                         className="btn btn-sm shadow-none"
-                                    // onClick={() => dispatch(decrementQuantity(product._id))}
-                                    // disabled={product.quantity <= 1 ? true : false}
+                                        onClick={() => dispatch(decrementQuantity(product._id))}
+                                        disabled={product.quantity <= 1 ? true : false}
                                     >
                                         <Icon icon={ic_expand_more} className="icon" size={18} />
                                     </button>
@@ -47,13 +62,14 @@ const Products = (props) => {
 
                         {/* content container */}
                         <div className="content-container flex-fill">
-                            <p className="name">{product.name.slice(0, 20)}...</p>
-                            <p className="quantity">Quantity: {10}</p>
+                            <p className="name">{product.name.slice(0, 15)}</p>
+                            <p className="quantity">Quantity: {product.quantity}</p>
+                            <p className="return-wishlist" onClick={() => returnToWishlist(product)}>Return Wishlist</p>
                         </div>
 
                         {/* price container */}
                         <div className="price-container flex-fill">
-                            <p>{100} ৳</p>
+                            <p>{product.price * product.quantity} ৳</p>
                         </div>
 
                         {/* remove item container */}
@@ -61,7 +77,7 @@ const Products = (props) => {
                             <button
                                 type="button"
                                 className="btn btn-sm shadow-none"
-                            // onClick={() => dispatch(removeProduct(product._id))}
+                                onClick={() => dispatch(removeProduct(product._id))}
                             >
                                 <Icon icon={ic_clear} className="icon" size={17} />
                             </button>
@@ -73,8 +89,6 @@ const Products = (props) => {
                     <p>Your cart is empty</p>
                 </div>
             }
-
-
         </div>
     );
 };

@@ -1,9 +1,11 @@
 import '../styles/app.scss'
+import { Provider } from 'react-redux'
+import { store } from '../redux/store'
 import NextNprogress from 'nextjs-progressbar'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <Provider store={store} >
       <NextNprogress
         color="#e84545"
         startPosition={0.3}
@@ -12,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         options={{ showSpinner: false }}
       />
       <Component {...pageProps} />
-    </div>
+    </Provider>
   )
 }
 

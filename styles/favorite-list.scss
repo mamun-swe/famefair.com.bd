@@ -36,11 +36,29 @@
                 }
             }
 
-            .btn {
+            .remove-btn {
+                padding: 10px;
+                color: $primary;
+                font-size: 12px;
+                font-weight: 600;
+                border-radius: 25px;
                 transition: 0.3s all;
+                background: $secondary;
+                text-transform: uppercase;
+            }
+
+            .cart-btn {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 10px 30px;
+                border-radius: 25px;
+                background: $primary;
+                text-transform: uppercase;
 
                 &:hover {
-                    color: $danger;
+                    color: #fff;
+                    background: $primary;
                 }
             }
         }

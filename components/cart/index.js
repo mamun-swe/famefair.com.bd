@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Icon from 'react-icons-kit'
 import { ic_clear } from 'react-icons-kit/md'
 import { arrowRight } from 'react-icons-kit/feather'
 
 import CartProducts from './products'
 import CartCheckout from './checkout'
-import { products } from '../../utils/data'
+import { productsList } from '../../redux/Actions/cart'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Index = ({ show, onHide }) => {
+    const dispatch = useDispatch()
+    const { products } = useSelector((state => state.cart))
+
     const [isCheckout, setCheckout] = useState(false)
     const user = {
         name: 'Mamun',
         phone: '01533592610',
         area: 'Dhaka'
     }
+
+    useEffect(() => {
+        dispatch(productsList())
+    }, [dispatch])
 
     return (
         <div className="shopping-cart">
@@ -41,10 +49,11 @@ const Index = ({ show, onHide }) => {
                     {isCheckout ?
                         <CartCheckout
                             user={user}
+                            products={products}
                             onHide={() => setCheckout(false)}
                         />
                         :
-                        <CartProducts products={products.slice(0, 5)} />
+                        <CartProducts products={products} />
                     }
                 </div>
 

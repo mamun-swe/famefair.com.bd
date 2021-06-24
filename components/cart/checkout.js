@@ -9,6 +9,7 @@ import SingleSelect from '../select/single'
 const Checkout = (props) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [area, setArea] = useState({ options: [], value: null, error: false })
+    const [dCharge, setDcharge] = useState(null)
     const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -26,6 +27,16 @@ const Checkout = (props) => {
         }
     }, [])
 
+    // Handle area
+    const handleArea = event => {
+        if (event.value !== "Dhaka") {
+            setDcharge(100)
+        } else {
+            setDcharge(60)
+        }
+        setArea({ ...area, value: event.value, error: false })
+    }
+
     // Submit order
     const onSubmit = async (data) => {
         try {
@@ -34,6 +45,7 @@ const Checkout = (props) => {
             const formData = {
                 ...data,
                 area: area.value,
+                deliver_charge: dCharge,
                 products: props.products
             }
 
@@ -98,7 +110,7 @@ const Checkout = (props) => {
                         className={errors.phone ? "form-control shadow-none error" : "form-control shadow-none"}
                         placeholder="01XXXXXXXXX"
                         defaultValue={props.user ? props.user.phone : null}
-                        disabled={props.user.phone}
+                        readOnly={props.user.phone}
                         {...register("phone", { required: "Phone is required" })}
                     />
                 </div>
@@ -111,11 +123,27 @@ const Checkout = (props) => {
                         error={area.error}
                         placeholder={'Area'}
                         options={area.options}
-                        value={(event) => setArea({ ...area, value: event.value, error: false })}
+                        value={handleArea}
                     />
                 </div>
 
+                {/* Shipping address */}
+                <div className="form-group mb-4">
+                    {errors.shipping_address && errors.shipping_address.message ?
+                        <small className="text-danger">{errors.shipping_address && errors.shipping_address.message}</small>
+                        : <small>Shipping address</small>}
+
+                    <input
+                        type="text"
+                        className={errors.shipping_address ? "form-control shadow-none error" : "form-control shadow-none"}
+                        placeholder="Enter shipping address"
+                        {...register("shipping_address", { required: "Shipping address is required" })}
+                    />
+                </div>
+
+
                 <div className="text-center">
+                    {dCharge ? <p>{dCharge} tk. delivery charge will include your order. </p> : null}
                     <button
                         type="submit"
                         className="btn shadow-none action-btn"

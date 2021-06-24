@@ -18,3 +18,18 @@ export const PrepareForCart = data => {
 
     return product
 }
+
+
+// Total price of cart
+export const TotalPrice = products => {
+    let total = 0
+
+    if (products && products.length) {
+        for (let i = 0; i < products.length; i++) {
+            const element = products[i]
+            total += parseInt(element.price) * parseInt(element.quantity)
+        }
+    }
+
+    return total
+}

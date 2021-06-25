@@ -72,7 +72,7 @@ const index = () => {
                                                 <input
                                                     type="text"
                                                     className={errors.phone ? "form-control shadow-none error" : "form-control shadow-none"}
-                                                    placeholder="example@gmail.com"
+                                                    placeholder="01XXXXXXXXX"
                                                     {...register("phone", { required: "Phone is required" })}
                                                 />
                                             </div>

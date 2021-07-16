@@ -42,7 +42,7 @@ export default function Header() {
                                 {/* Logo Container */}
                                 <div className="logo-container">
                                     <Link href="/">
-                                        <img src="/assets/logo.png" alt="EazyBest Logo" style={{ width: 180, height: 40 }} />
+                                        <img src="/assets/logo.png" alt="Famefair Logo" style={{ width: 180, height: 40 }} />
                                     </Link>
                                 </div>
 

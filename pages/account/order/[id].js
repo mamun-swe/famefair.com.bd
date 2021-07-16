@@ -18,7 +18,7 @@ const Order = () => {
     return (
         <div className="account-container">
             <Head>
-                <title>Famefair || Order Show</title>
+                <title>Famefair || Invoice</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavbarTop />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useForm } from 'react-hook-form'
+import { withAuth } from '../../components/withAuth'
 
 import { districts } from '../../utils/districts'
 import NavbarTop from '../../components/navbarTop/index'
@@ -233,4 +234,4 @@ const BasicInformation = () => {
     );
 };
 
-export default BasicInformation;
+export default withAuth(BasicInformation);

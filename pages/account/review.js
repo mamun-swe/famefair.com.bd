@@ -1,5 +1,6 @@
 
 import Head from 'next/head'
+import { withAuth } from '../../components/withAuth/index'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -52,4 +53,4 @@ const Review = () => {
     );
 };
 
-export default Review;
+export default withAuth(Review);

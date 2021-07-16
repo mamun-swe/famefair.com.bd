@@ -1,11 +1,12 @@
 
 import Head from 'next/head'
+import { withAuth } from '../../components/withAuth'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
 import Footer from '../../components/footer/index'
 import ProfileComponent from '../../components/account/profile/index'
-import EmptyComponent from '../../components/empty/index'
+// import EmptyComponent from '../../components/empty/index'
 import OrderTable from '../../components/account/order/index'
 
 import { orders } from '../../utils/data'
@@ -50,4 +51,4 @@ const OrderList = () => {
     );
 };
 
-export default OrderList;
+export default withAuth(OrderList);

@@ -7,6 +7,7 @@ import {
     alertCircle,
     dollarSign
 } from 'react-icons-kit/feather'
+import { withAuth } from '../../components/withAuth'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -80,4 +81,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default withAuth(index);

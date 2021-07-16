@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import { toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
 
 import NavbarTop from '../../components/navbarTop/index'
@@ -12,6 +11,11 @@ import GotoTop from '../../components/goTop/index'
 const index = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [isLoading, setLoading] = useState(false)
+
+    if (typeof window !== "undefined") {
+        const accessToken = localStorage.getItem("token")
+        if (accessToken) router.replace("/account")
+    }
 
     const onSubmit = async (data) => {
         try {

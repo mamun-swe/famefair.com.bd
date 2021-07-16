@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { useForm } from 'react-hook-form'
+import { withAuth } from '../../components/withAuth'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -141,4 +142,4 @@ const ChangePassword = () => {
     );
 };
 
-export default ChangePassword;
+export default withAuth(ChangePassword);

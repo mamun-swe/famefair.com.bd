@@ -25,6 +25,11 @@ const index = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [isLoading, setLoading] = useState(false)
 
+    if (typeof window !== "undefined") {
+        const accessToken = localStorage.getItem("token")
+        if (accessToken) router.replace("/account")
+    }
+
     const onSubmit = async (data) => {
         try {
             setLoading(true)

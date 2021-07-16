@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
+import Jwt from 'jsonwebtoken'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -15,12 +16,22 @@ const index = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [isLoading, setLoading] = useState(false)
 
+    if (typeof window !== "undefined") {
+        const accessToken = localStorage.getItem("token")
+        if (accessToken) router.replace("/account")
+    }
+
     const onSubmit = async (data) => {
         try {
             setLoading(true)
             console.log(data)
 
             setTimeout(() => {
+                const token = Jwt.sign(
+                    { phone: data.phone }, "MYSECRET", { expiresIn: '10d' }
+                )
+
+                localStorage.setItem('token', token)
                 setLoading(false)
                 router.push('/account')
             }, 1500);

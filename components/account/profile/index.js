@@ -19,6 +19,12 @@ const index = () => {
         return false
     }
 
+    // Remove token from localStorage & Logout
+    const doLogout = () => {
+        localStorage.removeItem("token")
+        router.push("/")
+    }
+
     return (
         <div className="profile-card-container">
             <div className="card border-0 shadow-sm">
@@ -81,7 +87,7 @@ const index = () => {
                     <button
                         type="button"
                         className="btn shadow-none btn-block"
-                        onClick={() => router.push('/')}
+                        onClick={doLogout}
                     >
                         <Icon icon={logOut} size={18} />Logout
                     </button>

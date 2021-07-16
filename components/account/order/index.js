@@ -20,7 +20,7 @@ const index = (props) => {
                                 className="pl-3"
                                 style={{ minWidth: 120 }}
                             >
-                                <Link href={`/account/order-list`}><p className="link-text text-info mb-0">{item.orderId}</p></Link>
+                                <Link href={`/account/order/${i + 1}`}><p className="link-text text-info mb-0">{item.orderId}</p></Link>
                             </td>
                             <td style={{ minWidth: 180 }}>
                                 <p>{item.date}</p>

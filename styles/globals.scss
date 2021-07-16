@@ -108,3 +108,14 @@ main {
         max-width: 1188px;
     }
 }
+
+// Column padding for admin dashboard col padding
+.col-padding {
+    padding: 15px;
+
+    @media (min-width: 992px) {
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

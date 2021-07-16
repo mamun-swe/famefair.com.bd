@@ -1,4 +1,5 @@
 .account-container {
+    // Profile container
     .profile-info-container {
         width: 100%;
 
@@ -8,6 +9,7 @@
         }
     }
 
+    // Data container
     .data-container {
         .card {
             overflow: hidden;
@@ -53,6 +55,115 @@
 
                     @media (min-width: 992px) {
                         width: 25%;
+                    }
+                }
+            }
+        }
+    }
+
+    // Order show container
+    .order-show-container {
+        p {
+            color: #000;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        h5 {
+            color: #555;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        // Sub total comission & total
+        .subtotal-comission-total-container {
+            .card {
+                border: 0;
+                float: left;
+                width: 100%;
+                padding: 10px;
+                background: none;
+
+                .body {
+                    padding: 20px;
+                    background: #fff;
+                    border-radius: 4px;
+                    text-align: center;
+                    border: 1px solid $secondary;
+
+                    h6 {
+                        color: $primary;
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin-bottom: 0px;
+                    }
+
+                    p {
+                        color: #555;
+                        font-size: 14px;
+                        margin-bottom: 0;
+                        text-transform: capitalize;
+                    }
+                }
+
+                @media (min-width: 576px) {
+                    width: 33.33%;
+                }
+            }
+        }
+
+        // Ordered products
+        .ordered-products {
+            .table {
+                thead {
+                    tr {
+                        td {
+                            color: #555;
+                            max-width: 80px;
+                            font-size: 13px;
+                            font-weight: 700;
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            border-bottom: 1px solid #dfdfdf;
+                        }
+
+                        .d-block-xl {
+                            @media (max-width: 1200px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            max-width: 80px;
+                            padding-top: 8px;
+                            padding-bottom: 8px;
+                            border-bottom: 1px solid #dfdfdf;
+
+                            img {
+                                max-height: 40px;
+                            }
+
+                            p {
+                                font-weight: 400;
+                                margin-bottom: 3px;
+                                font-size: 13px !important;
+                            }
+
+                            img {
+                                height: 40px;
+                            }
+                        }
+
+                        .d-block-xl {
+                            @media (max-width: 1200px) {
+                                display: none;
+                            }
+                        }
                     }
                 }
             }

@@ -33,3 +33,10 @@ export const TotalPrice = products => {
 
     return total
 }
+
+// Date formate
+export const DateFormate = (date) => {
+    date = new Date(date)
+    const cdate = date.toDateString()
+    return cdate
+}

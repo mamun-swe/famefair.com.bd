@@ -7,7 +7,8 @@ import {
     user,
     clock,
     logOut,
-    pieChart
+    pieChart,
+    shoppingBag
 } from "react-icons-kit/feather"
 
 const index = () => {
@@ -49,6 +50,13 @@ const index = () => {
                 </div>
 
                 <div className="card-body px-0 pt-0">
+                    <button
+                        type="button"
+                        onClick={() => router.push('/')}
+                        className="btn shadow-none btn-block"
+                    >
+                        <Icon icon={shoppingBag} size={18} />Back to Shopping
+                    </button>
                     <button
                         type="button"
                         onClick={() => router.push('/account')}

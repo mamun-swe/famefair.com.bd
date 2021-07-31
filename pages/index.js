@@ -8,7 +8,34 @@ import Features from '../components/feature/index'
 import Categories from '../components/categories/index'
 import GotoTop from '../components/goTop/index'
 
+import { Products } from './api/index'
+import { useCallback, useEffect, useState } from 'react'
+
 export default function Home() {
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  // Fetch data
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await Products(0)
+      if (response.status === 200) {
+        setTimeout(() => {
+          setData(response.data)
+          setLoading(false)
+        }, 5000)
+      }
+    } catch (error) {
+      if (error) {
+        console.log(error)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
   return (
     <div>
       <Head>
@@ -23,7 +50,7 @@ export default function Home() {
       <main>
         <BannerCarousel />
         <Features />
-        <Categories />
+        <Categories data={data} loading={loading} />
         <Footer />
         <GotoTop />
       </main>

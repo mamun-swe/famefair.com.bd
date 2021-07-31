@@ -4,18 +4,20 @@
         border-bottom: 2px solid #dfdfdf;
 
         .nav-item {
-            border: 0;
-            color: #000;
-            font-size: 14px;
-            font-weight: 500;
-            margin-right: 6px;
-            padding: 7px 12px;
-            background: none;
-            text-transform: capitalize;
-        }
+            .nav-link {
+                border: 0;
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                margin-right: 6px;
+                padding: 7px 12px;
+                background: none;
+                text-transform: capitalize;
+            }
 
-        .active {
-            color: $primary;
+            .active {
+                color: $primary;
+            }
         }
     }
 

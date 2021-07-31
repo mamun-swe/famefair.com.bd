@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Icon } from 'react-icons-kit'
-import { arrowUp } from 'react-icons-kit/feather'
+import { ArrowUp } from 'react-feather'
 
 const index = () => {
     const [show, setShow] = useState(false)
@@ -22,7 +21,7 @@ const index = () => {
         <div className="go-to-top-container">
             {show ?
                 <button type="button" className="btn shadow rounded-circle border-0" onClick={gotoTop}>
-                    <Icon icon={arrowUp} size={22} />
+                    <ArrowUp size={22} />
                 </button>
                 : null}
         </div>

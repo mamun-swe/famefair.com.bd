@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import Icon from 'react-icons-kit'
+import { Star } from 'react-feather'
 import { useForm } from 'react-hook-form'
-import { star } from 'react-icons-kit/ikons/star'
 import { toast, Slide } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -57,40 +56,40 @@ const index = () => {
                     <div className={rating.value === 1 ? "text-warning" : "text-muted"}
                         onClick={() => setRating({ value: 1, error: null })}
                     >
-                        <Icon icon={star} size={16} />
+                        <Star size={16} />
                     </div>
                     <div className={rating.value === 2 ? "text-warning" : "text-muted"}
                         onClick={() => setRating({ value: 2, error: null })}
                     >
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
                     </div>
                     <div
                         className={rating.value === 3 ? "text-warning" : "text-muted"}
                         onClick={() => setRating({ value: 3, error: null })}
                     >
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
                     </div>
                     <div
                         className={rating.value === 4 ? "text-warning" : "text-muted"}
                         onClick={() => setRating({ value: 4, error: null })}
                     >
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
                     </div>
                     <div
                         className={rating.value === 5 ? "text-warning" : "text-muted"}
                         onClick={() => setRating({ value: 5, error: null })}
                     >
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
-                        <Icon icon={star} size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
+                        <Star size={16} />
                     </div>
                 </div>
 

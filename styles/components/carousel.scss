@@ -8,21 +8,23 @@
         position: relative;
         border-radius: 6px;
 
-        .carousel .carousel-indicators {
-            li {
-                width: 10px;
-                height: 10px;
-                opacity: 0.6;
-                border-radius: 50%;
-                transition: 0.4s all;
-                border: 0 !important;
-                background-color: $primary;
-            }
+        .carousel {
+            .carousel-indicators {
+                button {
+                    width: 10px;
+                    height: 10px;
+                    opacity: 0.6;
+                    border-radius: 50%;
+                    transition: 0.4s all;
+                    border: 0 !important;
+                    background-color: $primary;
+                }
 
-            .active {
-                opacity: 1;
-                width: 50px;
-                border-radius: 15px !important;
+                .active {
+                    opacity: 1;
+                    width: 50px;
+                    border-radius: 15px !important;
+                }
             }
         }
 

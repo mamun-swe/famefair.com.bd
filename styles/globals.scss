@@ -8,7 +8,7 @@ main {
     padding-bottom: 60px;
 
     @media (min-width: 992px) {
-        padding-top: 80px;
+        padding-top: 105px;
         padding-bottom: 0;
     }
 }
@@ -33,6 +33,10 @@ main {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
     flex-direction: column !important;
+}
+
+a {
+    text-decoration: none !important;
 }
 
 /* Custom form */

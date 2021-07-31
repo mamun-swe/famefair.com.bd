@@ -1,6 +1,8 @@
 $bgcolor: #f9f9f9;
 $primary: #e84545;
 $secondary: #e8454523;
+// $primary: #000;
+// $secondary: rgba(0, 0, 0, 0.068);
 $danger: #e84545;
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
@@ -16,7 +18,7 @@ $danger: #e84545;
 @import "./components/categories.scss";
 @import "./components/footer.scss";
 @import "./components/goTop.scss";
-@import "./components/drawer.scss";
+@import "./components/category-drawer.scss";
 @import "./components/product-images.scss";
 @import "./components/product-content.scss";
 @import "./components/product-tab.scss";

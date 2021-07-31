@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Icon } from 'react-icons-kit'
 import { useRouter } from 'next/router'
-import { heart, shoppingCart, user } from 'react-icons-kit/feather'
 
-import CartComponent from '../cart/index'
 import { productsList } from '../../redux/Actions/cart'
 import { wishListProducts } from '../../redux/Actions/wishlist'
 import { useSelector, useDispatch } from 'react-redux'
+
+import MyCart from '../cart/index'
+import { Heart, ShoppingCart, User } from 'react-feather'
 
 const index = () => {
     const router = useRouter()
@@ -33,7 +33,7 @@ const index = () => {
                             className="btn shadow-none badge-btn"
                             onClick={() => router.push('/favorite-list')}
                         >
-                            <Icon icon={heart} size={23} />
+                            <Heart size={23} />
                             <span className="badge">
                                 {wishlistProducts.products && wishlistProducts.products.length ? wishlistProducts.products.length : 0}
                             </span>
@@ -55,7 +55,7 @@ const index = () => {
                             className="btn shadow-none badge-btn"
                             onClick={() => setCart(true)}
                         >
-                            <Icon icon={shoppingCart} size={23} />
+                            <ShoppingCart size={23} />
                             <span className="badge">{products && products.length ? products.length : 0}</span>
                         </button>
                         <button
@@ -63,7 +63,7 @@ const index = () => {
                             className="btn shadow-none badge-btn"
                             onClick={() => router.push('/login')}
                         >
-                            <Icon icon={user} size={25} />
+                            <User size={25} />
                         </button>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ const index = () => {
 
             {/* Shopping cart */}
             {isCart ?
-                <CartComponent
+                <MyCart
                     show={isCart}
                     onHide={() => setCart(false)}
                 />

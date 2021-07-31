@@ -6,7 +6,7 @@ const index = (props) => {
             <table className="table table-sm table-borderless table-responsive-md custom-review-table mb-0">
                 <thead>
                     <tr>
-                        <td className="pl-3">Order ID</td>
+                        <td className="ps-3">Order ID</td>
                         <td>Order Date</td>
                         <td>Amount</td>
                         <td className="text-center">Payment</td>
@@ -17,7 +17,7 @@ const index = (props) => {
                     {props.orders && props.orders.map((item, i) =>
                         <tr key={i}>
                             <td
-                                className="pl-3"
+                                className="ps-3"
                                 style={{ minWidth: 120 }}
                             >
                                 <Link href={`/account/order/${i + 1}`}><p className="link-text text-info mb-0">{item.orderId}</p></Link>

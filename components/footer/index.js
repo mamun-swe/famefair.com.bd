@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { toast } from 'react-toastify'
-import { Icon } from 'react-icons-kit'
 import { useForm } from 'react-hook-form'
-import { ic_place } from 'react-icons-kit/md'
-import { phone, mail, send } from 'react-icons-kit/feather'
-import { facebook, youtubePlay, instagram, linkedin } from 'react-icons-kit/fa'
-import { loading } from 'react-icons-kit/ikons'
+import { Facebook, Instagram, Linkedin, Loader, Mail, MapPin, Phone, Send, Youtube } from 'react-feather';
 // import { Subscribe } from '../../pages/api/index'
 
 const index = () => {
@@ -44,9 +39,9 @@ const index = () => {
                             {/* Contact information */}
                             <div className="col-lg-4 mb-4 mb-lg-0">
                                 <h6>Contact us</h6>
-                                <p><a href="tel:+8801910357601"><Icon icon={phone} size={18} className="mr-2" />+880 1533-592610 </a></p>
-                                <p><a href="mailto:support@famefair.com"><Icon icon={mail} size={18} className="mr-2" />support@famefair.com</a></p>
-                                <p><Icon icon={ic_place} size={18} className="mr-2" />Ashulia, Savar, Dhaka 1215</p>
+                                <p><a href="tel:+8801910357601"><Phone size={18} className="me-2" />+880 1533-592610 </a></p>
+                                <p><a href="mailto:support@famefair.com"><Mail size={18} className="me-2" />support@famefair.com</a></p>
+                                <p><MapPin size={18} className="me-2" />Ashulia, Savar, Dhaka 1215</p>
                             </div>
 
                             {/* Policy & Info */}
@@ -90,8 +85,7 @@ const index = () => {
                                     </div>
                                     <div>
                                         <button type="submit" className="btn shadow-none" disabled={isLoading}>
-                                            {isLoading ? <Icon icon={loading} className="spin" size={18} />
-                                                : <Icon icon={send} size={22} />}
+                                            {isLoading ? <Loader className="spin" size={18} /> : <Send size={22} />}
                                         </button>
                                     </div>
                                 </div>
@@ -99,10 +93,10 @@ const index = () => {
 
                             {/* Social links */}
                             <div className="social-links">
-                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={facebook} size={18} /></a>
-                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={youtubePlay} size={20} /></a>
-                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={instagram} size={20} /></a>
-                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Icon icon={linkedin} size={20} /></a>
+                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Facebook size={18} /></a>
+                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Youtube size={20} /></a>
+                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Instagram size={20} /></a>
+                                <a href="https://www.facebook.com/famefair.com.bd" target="_blank"><Linkedin size={20} /></a>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
 
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { Icon } from 'react-icons-kit'
-import { x } from 'react-icons-kit/feather'
+import { X } from 'react-feather'
 import {
     wishListProducts,
     removeFromList
@@ -15,6 +14,7 @@ import NavbarBottom from '../../components/navbarBottom/index'
 import Footer from '../../components/footer/index'
 import GotoTop from '../../components/goTop/index'
 import EmptyComponent from '../../components/empty/index'
+
 
 const index = () => {
     const dispatch = useDispatch()
@@ -68,7 +68,7 @@ const index = () => {
                                                         <p><span>BRAND :</span> {item.brand ? item.brand : 'N/A'}</p>
                                                     </div>
 
-                                                    <div className="text-right pl-2 pl-lg-0">
+                                                    <div className="text-end ps-2 ps-lg-0">
                                                         <button
                                                             type="button"
                                                             className="btn shadow-none cart-btn"
@@ -76,10 +76,10 @@ const index = () => {
                                                         >Add to cart</button>
                                                         <button
                                                             type="button"
-                                                            className="btn shadow-none remove-btn ml-2"
+                                                            className="btn shadow-none remove-btn ms-2"
                                                             onClick={() => removeItem(item._id)}
                                                         >
-                                                            <Icon icon={x} size={20} />
+                                                            <X size={20} />
                                                         </button>
                                                     </div>
                                                 </div>

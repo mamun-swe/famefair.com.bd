@@ -18,12 +18,11 @@ import {
     TumblrIcon
 } from 'react-share'
 import { useDispatch } from 'react-redux'
-import { Icon } from 'react-icons-kit'
 import { useRouter } from 'next/router'
-import { check, heart } from 'react-icons-kit/feather'
 import { PrepareForCart } from '../../utils/_helpers'
 import { addProduct } from '../../redux/Actions/cart'
 import { addWistlist } from '../../redux/Actions/wishlist'
+import { Check, Heart } from 'react-feather'
 
 const index = (props) => {
     const dispatch = useDispatch()
@@ -52,14 +51,14 @@ const index = (props) => {
 
             <p className="mb-0">PRICE</p>
             <h6 className="mb-3">15555 tk.</h6>
-            <p className="small-content mb-0"><Icon className="text-success" icon={check} size={16} /> 30 days return.</p>
-            <p className="small-content mb-0"><Icon className="text-success" icon={check} size={16} /> Cash on delivery.</p>
-            <p className="small-content mb-0"><Icon className="text-success" icon={check} size={16} /> Delivery charge 60 tk inside dhaka.</p>
-            <p className="small-content mb-0"><Icon className="text-success" icon={check} size={16} /> Delivery charge 100 tk outside dhaka.</p>
-            <p className="small-content mb-4"><Icon className="text-success" icon={check} size={16} /> 7 days delivery anywhere in Bangladesh.</p>
+            <p className="small-content mb-0"><Check className="text-success" size={16} /> 30 days return.</p>
+            <p className="small-content mb-0"><Check className="text-success" size={16} /> Cash on delivery.</p>
+            <p className="small-content mb-0"><Check className="text-success" size={16} /> Delivery charge 60 tk inside dhaka.</p>
+            <p className="small-content mb-0"><Check className="text-success" size={16} /> Delivery charge 100 tk outside dhaka.</p>
+            <p className="small-content mb-4"><Check className="text-success" size={16} /> 7 days delivery anywhere in Bangladesh.</p>
             <button type="button" className="btn shadow-sm" onClick={() => addToCart(props.data)}>ADD TO CART</button>
-            <button type="button" className="btn shadow-sm rounded-circle heart-btn ml-2" onClick={() => addToWishList(props.data)}>
-                <Icon icon={heart} size={20} />
+            <button type="button" className="btn shadow-sm rounded-circle heart-btn ms-2" onClick={() => addToWishList(props.data)}>
+                <Heart size={20} />
             </button>
 
             {/* Social sharing */}

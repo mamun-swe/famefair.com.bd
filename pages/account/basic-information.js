@@ -78,7 +78,7 @@ const BasicInformation = () => {
                                 <div className="profile-info-container mb-3 mb-lg-0">
                                     <ProfileComponent />
                                 </div>
-                                <div className="data-container flex-fill pl-lg-3">
+                                <div className="data-container flex-fill ps-lg-3">
                                     <div className="card border-0 shadow-sm">
                                         <div className="card-header bg-white p-4">
                                             <h6 className="mb-0">Basic Information</h6>
@@ -201,7 +201,7 @@ const BasicInformation = () => {
                                                                 </div>
                                                             </div>
 
-                                                            <div className="col-12 text-right">
+                                                            <div className="col-12 text-end">
                                                                 <button
                                                                     type="submit"
                                                                     className="btn shadow-none submit-btn"
@@ -210,7 +210,7 @@ const BasicInformation = () => {
 
                                                                 <button
                                                                     type="button"
-                                                                    className="btn shadow-none danger-btn ml-2"
+                                                                    className="btn shadow-none danger-btn ms-2"
                                                                     onClick={() => setEdit(false)}
                                                                 >Cancel</button>
                                                             </div>

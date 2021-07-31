@@ -1,15 +1,5 @@
 import { useRouter } from 'next/router'
-import Icon from "react-icons-kit"
-import {
-    edit2,
-    grid,
-    settings,
-    user,
-    clock,
-    logOut,
-    pieChart,
-    shoppingBag
-} from "react-icons-kit/feather"
+import { Clock, Edit2, Grid, LogOut, PieChart, Settings, ShoppingBag, User } from 'react-feather'
 
 const index = () => {
     const router = useRouter()
@@ -37,7 +27,7 @@ const index = () => {
                             <img src="/assets/user.png" className="img-fluid" alt="User profile" />
                         </div>
                         <button type="button" className="btn shadow-sm rounded-circle">
-                            <Icon icon={edit2} size={18} />
+                            <Edit2 size={18} />
                         </button>
                     </div>
 
@@ -53,51 +43,51 @@ const index = () => {
                     <button
                         type="button"
                         onClick={() => router.push('/')}
-                        className="btn shadow-none btn-block"
+                        className="btn shadow-none w-100"
                     >
-                        <Icon icon={shoppingBag} size={18} />Back to Shopping
+                        <ShoppingBag size={18} className="me-2" />Back to Shopping
                     </button>
                     <button
                         type="button"
                         onClick={() => router.push('/account')}
-                        className={isActive("/account") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
+                        className={isActive("/account") ? "btn shadow-none w-100 active" : "btn shadow-none w-100"}
                     >
-                        <Icon icon={grid} size={18} />Dashboard
+                        <Grid size={18} className="me-2" />Dashboard
                     </button>
                     <button
                         type="button"
                         onClick={() => router.push('/account/order-list')}
-                        className={isActive("/account/order-list") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
+                        className={isActive("/account/order-list") ? "btn shadow-none w-100 active" : "btn shadow-none w-100"}
                     >
-                        <Icon icon={pieChart} size={18} />Order List
+                        <PieChart size={18} className="me-2" />Order List
                     </button>
                     <button
                         type="button"
                         onClick={() => router.push('/account/review')}
-                        className={isActive("/account/review") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
+                        className={isActive("/account/review") ? "btn shadow-none w-100 active" : "btn shadow-none w-100"}
                     >
-                        <Icon icon={clock} size={18} />Review
+                        <Clock size={18} className="me-2" />Review
                     </button>
                     <button
                         type="button"
                         onClick={() => router.push('/account/basic-information')}
-                        className={isActive("/account/basic-information") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
+                        className={isActive("/account/basic-information") ? "btn shadow-none w-100 active" : "btn shadow-none w-100"}
                     >
-                        <Icon icon={user} size={18} />Basic Information
+                        <User size={18} className="me-2" />Basic Information
                     </button>
                     <button
                         type="button"
                         onClick={() => router.push('/account/change-password')}
-                        className={isActive("/account/change-password") ? "btn shadow-none btn-block active" : "btn shadow-none btn-block"}
+                        className={isActive("/account/change-password") ? "btn shadow-none w-100 active" : "btn shadow-none w-100"}
                     >
-                        <Icon icon={settings} size={18} />Change Password
+                        <Settings size={18} className="me-2" />Change Password
                     </button>
                     <button
                         type="button"
-                        className="btn shadow-none btn-block"
+                        className="btn shadow-none w-100"
                         onClick={doLogout}
                     >
-                        <Icon icon={logOut} size={18} />Logout
+                        <LogOut size={18} className="me-2" />Logout
                     </button>
                 </div>
             </div>

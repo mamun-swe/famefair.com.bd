@@ -29,7 +29,7 @@ const Review = () => {
                                 <div className="profile-info-container mb-3 mb-lg-0">
                                     <ProfileComponent />
                                 </div>
-                                <div className="data-container flex-fill pl-lg-3">
+                                <div className="data-container flex-fill ps-lg-3">
                                     <div className="card border-0 shadow-sm">
                                         <div className="card-header bg-white p-4">
                                             <h6 className="mb-0">Review</h6>

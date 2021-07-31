@@ -1,21 +1,15 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Icon } from 'react-icons-kit'
 import { useRouter } from 'next/router'
-import {
-    heart,
-    shoppingCart,
-    user,
-    menu
-} from 'react-icons-kit/feather'
-
-import Drawer from '../drawer/index'
-import CartComponent from '../cart/index'
-import SearchComponent from '../search/index'
+import { ChevronRight, Heart, Menu, ShoppingCart, User } from 'react-feather'
 
 import { productsList } from '../../redux/Actions/cart'
 import { wishListProducts } from '../../redux/Actions/wishlist'
 import { useSelector, useDispatch } from 'react-redux'
+
+import CategoryDrawer from '../categoryDrawer/index'
+import CartComponent from '../cart/index'
+import SearchComponent from '../search/index'
 
 export default function Header() {
     const router = useRouter()
@@ -36,7 +30,7 @@ export default function Header() {
             <div className="desktop-header-container d-none d-lg-block shadow-sm">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 mb-2">
                             <div className="d-flex justify-content-between">
 
                                 {/* Logo Container */}
@@ -58,7 +52,7 @@ export default function Header() {
                                         className="btn shadow-none badge-btn favourite-btn"
                                         onClick={() => router.push('/favorite-list')}
                                     >
-                                        <Icon icon={heart} size={20} />
+                                        <Heart size={20} />
                                         <span className="badge">
                                             {wishlistProducts.products && wishlistProducts.products.length ? wishlistProducts.products.length : 0}
                                         </span>
@@ -68,7 +62,7 @@ export default function Header() {
                                         className="btn shadow-none badge-btn"
                                         onClick={() => setCart(true)}
                                     >
-                                        <Icon icon={shoppingCart} size={20} />
+                                        <ShoppingCart size={20} />
                                         <span className="badge">{products && products.length ? products.length : 0}</span>
                                     </button>
 
@@ -77,10 +71,19 @@ export default function Header() {
                                         className="btn shadow-none badge-btn"
                                         onClick={() => router.push('/login')}
                                     >
-                                        <Icon icon={user} size={21} />
+                                        <User size={21} />
                                     </button>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="action-button-container col-12">
+                            <button
+                                type="button"
+                                className="btn shadow-none"
+                                onClick={() => setDrawer(true)}
+                            >Categories <ChevronRight size={15} /></button>
                         </div>
                     </div>
                 </div>
@@ -104,7 +107,7 @@ export default function Header() {
                                         className="btn shadow-none menu-btn rounded-circle"
                                         onClick={() => setDrawer(true)}
                                     >
-                                        <Icon icon={menu} size={25} />
+                                        <Menu size={25} />
                                     </button>
                                 </div>
                             </div>
@@ -113,8 +116,8 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Sidebar drawer */}
-            <Drawer
+            {/* Category drawer */}
+            <CategoryDrawer
                 show={isDrawer}
                 onHide={() => setDrawer(false)}
             />

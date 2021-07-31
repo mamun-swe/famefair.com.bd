@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import { Icon } from 'react-icons-kit'
-import { search } from 'react-icons-kit/feather'
-import { ic_call_made } from 'react-icons-kit/md'
 import { useRouter } from 'next/router'
+import { ArrowUpRight, Search } from 'react-feather'
 
 const Index = () => {
     const router = useRouter()
@@ -85,7 +83,7 @@ const Index = () => {
                         placeholder="Search"
                         onChange={handleSearch}
                     />
-                    <Icon icon={search} size={20} className="icon" />
+                    <Search size={20} className="icon" />
                 </div>
             </form>
 
@@ -99,8 +97,8 @@ const Index = () => {
                                     <img src={product.thumbnail} className="img-fluid" alt="..." />
                                 </div>
                                 <div><p>{product.name}</p></div>
-                                <div className="ml-auto pt-2">
-                                    <Icon icon={ic_call_made} size={18} />
+                                <div className="ms-auto pt-2">
+                                    <ArrowUpRight size={18} />
                                 </div>
                             </div>
                         )}

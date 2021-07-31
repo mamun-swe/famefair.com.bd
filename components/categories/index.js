@@ -12,7 +12,7 @@ const index = () => {
                         <div className="col-12 mb-1 px-4">
                             <div className="d-flex">
                                 <div><h5>{category.name}</h5></div>
-                                <div className="ml-auto">
+                                <div className="ms-auto">
                                     <Link href={`/category/${category._id}`}><button type="button" className="btn shadow-none">View All</button></Link>
                                 </div>
                             </div>

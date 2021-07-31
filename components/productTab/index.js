@@ -50,14 +50,14 @@ const index = () => {
                                         <h5>M</h5>
                                     </div>
                                 </div>
-                                <div className="pl-3 w-100">
+                                <div className="ps-3 w-100">
                                     <div className="name-review-section d-flex mb-2">
                                         <div>
                                             <h6>Abdullah al mamun</h6>
                                         </div>
-                                        <div className="ml-auto">
+                                        <div className="ms-auto">
                                             <div className="d-flex">
-                                                <div><small className="text-muted mr-2">Jun 14, 2021</small></div>
+                                                <div><small className="text-muted me-2">Jun 14, 2021</small></div>
                                                 <div>
                                                     {/* <RatingStar star={parseInt(item.rating)} /> */}
                                                 </div>

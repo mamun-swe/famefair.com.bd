@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Icon from 'react-icons-kit'
+import { ArrowRight, ChevronLeft } from 'react-feather'
 import { useForm } from 'react-hook-form'
-import { chevronLeft, arrowRight } from 'react-icons-kit/feather'
 
 import { districts } from '../../utils/districts'
 import SingleSelect from '../select/single'
@@ -79,7 +78,7 @@ const Checkout = (props) => {
                     className="btn btn-block p-0 shadow-none text-left"
                     onClick={props.onHide}
                 >
-                    <Icon icon={chevronLeft} size={20} /> Back to Cart
+                    <ChevronLeft size={20} /> Back to Cart
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -150,7 +149,7 @@ const Checkout = (props) => {
                         disabled={isLoading}
                     >
                         {isLoading ? 'Placing ...' : 'Place Order'}
-                        <Icon icon={arrowRight} size={20} />
+                        <ArrowRight size={20} />
                     </button>
                 </div>
             </form>

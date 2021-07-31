@@ -90,13 +90,13 @@ const index = () => {
                                             </div>
 
 
-                                            <button type="submit" className="btn btn-block shadow-none" disabled={isLoading}>
+                                            <button type="submit" className="btn w-100 shadow-none" disabled={isLoading}>
                                                 {isLoading ? <span>Loading...</span> : <span>Reset</span>}
                                             </button>
                                         </form>
 
-                                        <div className="text-right mt-4">
-                                            <p className="mb-1">Back to <Link href="/login">Login</Link></p>
+                                        <div className="text-end mt-4">
+                                            <p className="mb-1 text-decoration-none">Back to <Link href="/login">Login</Link></p>
                                         </div>
                                     </div>
                                 </div>

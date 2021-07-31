@@ -114,12 +114,12 @@ const index = () => {
                                             </div>
 
 
-                                            <button type="submit" className="btn btn-block shadow-none" disabled={isLoading}>
+                                            <button type="submit" className="btn w-100 shadow-none" disabled={isLoading}>
                                                 {isLoading ? <span>Loading...</span> : <span>Submit</span>}
                                             </button>
                                         </form>
 
-                                        <div className="text-right mt-4">
+                                        <div className="text-end mt-4">
                                             <p>Already have an account ? <Link href="/login">Login</Link></p>
                                         </div>
                                     </div>

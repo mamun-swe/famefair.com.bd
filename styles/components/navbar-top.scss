@@ -7,7 +7,7 @@
     z-index: 999;
     background: #fff;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     transition: 0.25s !important;
 
     // Logo container
@@ -57,6 +57,19 @@
             background: $primary;
             border-radius: 25px;
             padding: 7px 20px;
+        }
+    }
+
+    // Action button container
+    .action-button-container {
+        .btn {
+            color: $primary;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 12px;
+            margin-right: 10px;
+            border-radius: 25px;
+            background: $secondary;
         }
     }
 }

@@ -1,105 +1,70 @@
 import React from 'react'
-import Icon from 'react-icons-kit'
-import {
-    ic_clear,
-    ic_expand_less,
-    ic_expand_more
-} from 'react-icons-kit/md'
-import {
-    removeProduct,
-    incrementQuantity,
-    decrementQuantity
-} from '../../redux/Actions/cart'
-import {
-    addWistlist
-} from '../../redux/Actions/wishlist'
-import { useDispatch } from 'react-redux'
-import { TotalPrice } from '../../utils/_helpers'
+import { Button } from 'react-bootstrap'
+import { ChevronDown, ChevronUp, Trash2 } from 'react-feather'
+import EmptyComponent from '../empty/index'
 
-const ProductsList = ({ products }) => {
-    const dispatch = useDispatch()
-
-    // Return to wishlist
-    const returnToWishlist = data => {
-        dispatch(addWistlist(data))
-        dispatch(removeProduct(data._id))
-    }
-
+const products = (props) => {
     return (
         <div className="cart-items-container">
-            {products && products.length ?
-                <div>
-                    {products.map((product, i) =>
-                        <div className="cart-item d-flex border-bottom p-2" key={i}>
+            {props.products && props.products.length ?
+                props.products.map((product, i) =>
+                    <div className="cart-item d-flex border-bottom p-2" key={i}>
 
-                            {/* Quantity Inc Desc container */}
-                            <div className="quantity-inc-desc-container">
-                                <ul>
-                                    <li>
-                                        <button
-                                            type="button"
-                                            className="btn btn-sm shadow-none"
-                                            onClick={() => dispatch(incrementQuantity(product._id))}
-                                            disabled={product.quantity >= product.stock_amount ? true : false}
-                                        >
-                                            <Icon icon={ic_expand_less} className="icon" size={18} />
-                                        </button>
-                                    </li>
-                                    <li><p>{product.quantity}</p></li>
-                                    <li>
-                                        <button
-                                            type="button"
-                                            className="btn btn-sm shadow-none"
-                                            onClick={() => dispatch(decrementQuantity(product._id))}
-                                            disabled={product.quantity <= 1 ? true : false}
-                                        >
-                                            <Icon icon={ic_expand_more} className="icon" size={18} />
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* image container */}
-                            <div className="image-container px-2">
-                                <img src={product.image} className="img-fluid" alt="..." />
-                            </div>
-
-                            {/* content container */}
-                            <div className="content-container flex-fill">
-                                <p className="name">{product.name.slice(0, 15)}</p>
-                                <p className="quantity">Quantity: {product.quantity}</p>
-                                <p className="return-wishlist" onClick={() => returnToWishlist(product)}>Return Wishlist</p>
-                            </div>
-
-                            {/* price container */}
-                            <div className="price-container flex-fill">
-                                <p>{product.price * product.quantity} ৳</p>
-                            </div>
-
-                            {/* remove item container */}
-                            <div className="remove-item-container px-1">
-                                <button
-                                    type="button"
-                                    className="btn btn-sm shadow-none"
-                                    onClick={() => dispatch(removeProduct(product._id))}
-                                >
-                                    <Icon icon={ic_clear} className="icon" size={17} />
-                                </button>
-                            </div>
+                        {/* Quantity Inc Desc container */}
+                        <div className="quantity-inc-desc-container">
+                            <ul>
+                                <li>
+                                    <button
+                                        type="button"
+                                        className="btn btn-sm shadow-none"
+                                        onClick={() => props.increment(product._id)}
+                                        disabled={product.quantity >= product.stockAmount ? true : false}
+                                    >
+                                        <ChevronUp className="icon" size={18} />
+                                    </button>
+                                </li>
+                                <li><p>{product.quantity}</p></li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        className="btn btn-sm shadow-none"
+                                        onClick={() => props.decrement(product._id)}
+                                        disabled={product.quantity <= 1 ? true : false}
+                                    >
+                                        <ChevronDown className="icon" size={18} />
+                                    </button>
+                                </li>
+                            </ul>
                         </div>
-                    )}
-                    <div className="text-right px-4 py-2">
-                        <p>Total = {TotalPrice(products)} tk.</p>
+
+                        {/* image container */}
+                        <div className="px-2">
+                            <img src={product.image} width="50" height="50" alt="..." />
+                        </div>
+
+                        {/* content container */}
+                        <div className="flex-fill">
+                            <p className="fw-light text-dark mb-0">{product.name.length > 28 ? product.name.slice(0, 28) + " ..." : product.name}</p>
+                            <p className="fw-light text-black-50 mb-0">৳ {product.price} x {product.quantity}</p>
+                            {!product.shopType ? <p className="fw-light text-primary mb-0" onClick={() => props.addWishlist(product)}>Return Wishlist</p> : null}
+                        </div>
+
+                        {/* remove item container */}
+                        <div className="pl-2">
+                            <Button
+                                variant="white"
+                                className="shadow-none px-2 py-3"
+                                onClick={() => props.remove(product._id)}
+                            >
+                                <Trash2 size={15} />
+                            </Button>
+                        </div>
                     </div>
-                </div>
-                :
-                <div className="text-center p-4">
-                    <img src="/assets/empty.png" className="img-fluid" alt="..." style={{ width: 200 }} />
-                    <p>Your cart is empty</p>
-                </div>
+                ) :
+                <EmptyComponent message={'No products in cart.'} />
             }
         </div>
     );
 };
 
-export default ProductsList;
+export default products;

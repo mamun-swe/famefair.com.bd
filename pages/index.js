@@ -23,7 +23,6 @@ export default function Home() {
       if (response.status === 200) {
         setTimeout(() => {
           setData(response.data)
-          // setLoading(false)
         }, 500)
       }
       setBannerLoading(false)

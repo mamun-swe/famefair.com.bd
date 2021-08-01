@@ -21,12 +21,14 @@ export const ProducstLoader = (props) => {
             {props.items ?
                 [...Array(props.items).keys()].map((item) =>
                     <div className="product-card" key={item}>
-                        <div ref={container}>
-                            <Skeleton
-                                circle={props.circle}
-                                width={props.width ? props.width : width}
-                                height={props.height ? props.height : 220}
-                            />
+                        <div className="p-2 bg-white" style={{ borderRadius: 6 }}>
+                            <div className="w-100" ref={container}>
+                                <Skeleton
+                                    circle={props.circle}
+                                    width={props.width ? props.width : width}
+                                    height={props.height ? props.height : 200}
+                                />
+                            </div>
                         </div>
                     </div>
                 ) : null}

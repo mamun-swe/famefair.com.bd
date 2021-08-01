@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import { Products } from '../../pages/api/index'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import Product from '../product/index'
+import { Products } from '../../pages/api/index'
+import { CategoriesLoader } from '../contentLoader/Index'
 import { products } from '../../utils/data'
 
 
@@ -25,7 +26,7 @@ const index = ({ data, loading }) => {
         }
     }
 
-    if (loading) return <div className="text-center"><p>Loading ...</p></div>
+    if (loading) return <CategoriesLoader items={3} />
 
     return (
         <div className="categories-container">

@@ -13,6 +13,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 export default function Home() {
   const [data, setData] = useState([])
+  const [bannerLoading, setBannerLoading] = useState(true)
   const [loading, setLoading] = useState(true)
 
   // Fetch data
@@ -22,7 +23,7 @@ export default function Home() {
       if (response.status === 200) {
         setTimeout(() => {
           setData(response.data)
-          setLoading(false)
+          // setLoading(false)
         }, 5000)
       }
     } catch (error) {
@@ -48,7 +49,7 @@ export default function Home() {
       <NavbarBottom />
 
       <main>
-        <BannerCarousel />
+        <BannerCarousel loading={bannerLoading} />
         <Features />
         <Categories data={data} loading={loading} />
         <Footer />

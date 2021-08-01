@@ -1,9 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import { Carousel } from 'react-bootstrap'
+import { CarouselLoader } from '../contentLoader/Index'
 import { carousels } from '../../utils/data'
 
-const index = () => {
+const index = (props) => {
+
+    if (props.loading) return <CarouselLoader />
+    
     return (
         <div className="custom-carousel-container">
             <div className="container">

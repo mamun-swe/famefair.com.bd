@@ -29,7 +29,9 @@ export const products = [
     { _id: 9, slug: 9, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 9", image: "/products/1.jpg" },
     { _id: 10, slug: 10, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 10", image: "/products/2.jpg" },
     { _id: 11, slug: 11, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 11", image: "/products/3.jpg" },
-    { _id: 12, slug: 12, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 12", image: "/products/4.jpg" }
+    { _id: 12, slug: 12, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 12", image: "/products/4.jpg" },
+    { _id: 13, slug: 13, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 7", image: "/products/7.jpg" },
+    { _id: 14, slug: 14, sku: 'FF123', stock_amount: 20, price: 250, name: "Product 8", image: "/products/8.jpg" }
 ]
 
 export const reviews = [

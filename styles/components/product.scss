@@ -13,42 +13,35 @@
 
         .img-container {
             margin: auto;
-            width: 120px;
+            width: 100%;
             height: 120px;
             overflow: hidden;
 
             @media (min-width: 992px) {
-                width: 140px;
                 height: 140px;
             }
 
             @media (min-width: 1200px) {
-                width: 150px;
                 height: 150px;
             }
 
             @media (min-width: 1440px) {
-                width: 160px;
                 height: 160px;
             }
 
             img {
-                width: 120px;
                 height: 120px;
                 transition: 0.2s all;
 
                 @media (min-width: 992px) {
-                    width: 140px;
                     height: 140px;
                 }
 
                 @media (min-width: 1200px) {
-                    width: 150px;
                     height: 150px;
                 }
 
                 @media (min-width: 1440px) {
-                    width: 160px;
                     height: 160px;
                 }
             }
@@ -92,5 +85,9 @@
 
     @media (min-width: 1440px) {
         width: 16.66%;
+    }
+
+    @media (min-width: 1500px) {
+        width: 14.28%;
     }
 }

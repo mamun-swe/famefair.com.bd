@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import NavbarTop from '../../components/navbarTop/index'
@@ -15,6 +15,12 @@ import { ProducstLoader } from '../../components/contentLoader/Products'
 export default function SearchResult() {
     const { query } = useRouter()
     const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 500)
+    }, [])
 
     return (
         <div>

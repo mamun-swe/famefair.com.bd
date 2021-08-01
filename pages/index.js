@@ -24,8 +24,10 @@ export default function Home() {
         setTimeout(() => {
           setData(response.data)
           // setLoading(false)
-        }, 5000)
+        }, 500)
       }
+      setBannerLoading(false)
+      setLoading(false)
     } catch (error) {
       if (error) {
         console.log(error)

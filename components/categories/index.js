@@ -34,7 +34,7 @@ const index = ({ data, loading }) => {
                 dataLength={items.length}
                 next={getMore}
                 hasMore={true}
-                loader={<h4 className="text-center">Loading...</h4>}
+                loader={<CategoriesLoader items={3} />}
                 endMessage={
                     <p style={{ textAlign: 'center' }}>
                         <b>Yay! You have seen it all</b>

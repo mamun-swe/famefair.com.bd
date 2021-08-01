@@ -1,5 +1,6 @@
 
 import Head from 'next/head'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
@@ -8,12 +9,56 @@ import GotoTop from '../../components/goTop/index'
 import Product from '../../components/product/index'
 
 import { CategoryLoader } from '../../components/contentLoader/Category'
+import { ProducstLoader } from '../../components/contentLoader/Products'
 
-import { categories, products } from '../../utils/data'
-import { useState } from 'react'
+import { categories } from '../../utils/data'
+import { CategoryProducts } from '../api/index'
+
+import { useCallback, useEffect, useState } from 'react'
+
+import { products } from '../../utils/data'
 
 export default function Category() {
+    const [page, setPage] = useState(0)
+    const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
+
+    // Fetch data
+    const fetchData = useCallback(async () => {
+        try {
+            const response = await CategoryProducts(0)
+            if (response.status === 200) {
+                setTimeout(() => {
+                    setItems(response.data)
+                }, 500)
+            }
+            setLoading(false)
+        } catch (error) {
+            if (error) {
+                console.log(error)
+            }
+        }
+    }, [])
+
+
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
+
+
+    //   Get more data
+    const getMore = async () => {
+        try {
+            setPage(page + 1)
+            const response = await CategoryProducts(page + 1)
+            if (response.status === 200) {
+                setItems([...items, ...response.data])
+            }
+
+        } catch (error) {
+            if (error) console.log(error)
+        }
+    }
 
     return (
         <div className="category-index">
@@ -49,30 +94,27 @@ export default function Category() {
                             <div className="container">
                                 <div className="row">
                                     <div className="col-12">
-                                        {products && products.length && products.map((item, j) =>
-                                            <Product
-                                                key={j}
-                                                item={item}
-                                            />
-                                        )}
-                                        {products && products.length && products.map((item, j) =>
-                                            <Product
-                                                key={j}
-                                                item={item}
-                                            />
-                                        )}
-                                        {products && products.length && products.map((item, j) =>
-                                            <Product
-                                                key={j}
-                                                item={item}
-                                            />
-                                        )}
-                                        {products && products.length && products.map((item, j) =>
-                                            <Product
-                                                key={j}
-                                                item={item}
-                                            />
-                                        )}
+                                        <InfiniteScroll
+                                            dataLength={items.length}
+                                            next={getMore}
+                                            hasMore={true}
+                                            loader={<ProducstLoader items={18} />}
+                                            endMessage={
+                                                <p style={{ textAlign: 'center' }}>
+                                                    <b>Yay! You have seen it all</b>
+                                                </p>
+                                            }
+                                        >
+                                            {items && items.length ?
+                                                items.map((item, j) =>
+                                                    <Product
+                                                        key={j}
+                                                        item={products[1]}
+                                                    />
+                                                )
+                                                : null}
+
+                                        </InfiniteScroll>
                                     </div>
                                 </div>
                             </div>

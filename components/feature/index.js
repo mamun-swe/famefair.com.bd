@@ -10,7 +10,7 @@ const index = () => {
                             <div className="icon-container rounded-circle flex-center flex-column">
                                 <img src="/icons/delivery.png" className="img-fluid" alt="feature" />
                             </div>
-                            <p>Fast Delivery</p>
+                            <p>Fast Delivery to</p>
                         </div>
                     </div>
                     <div className="col-3 text-center">

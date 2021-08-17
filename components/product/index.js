@@ -4,7 +4,7 @@ const index = (props) => {
     const router = useRouter()
 
     return (
-        <div className="product-card card border-0" onClick={() => router.push(`/product/${props.item._id}`)}>
+        <div className="product-card card border-0" onClick={() => router.push(`/product/${props.item.slug}`)}>
             <div className="card-body text-center">
                 <div className="img-container">
                     <img src={props.item.image} className="img-fluid" alt={props.item.name} />

@@ -8,36 +8,44 @@ import Features from '../components/feature/index'
 import Categories from '../components/categories/index'
 import GotoTop from '../components/goTop/index'
 
-import { Products } from './api/index'
+import { Banner, CategoryWithProducts } from './api/index'
 import { useCallback, useEffect, useState } from 'react'
 
 export default function Home() {
-  const [data, setData] = useState([])
-  const [bannerLoading, setBannerLoading] = useState(true)
-  const [loading, setLoading] = useState(true)
+  const [banner, setBanner] = useState({ data: [], loading: true })
+  const [category, setCategory] = useState({ data: [], loading: true })
 
-  // Fetch data
-  const fetchData = useCallback(async () => {
+  // Fetch banner
+  const fetchBanner = useCallback(async () => {
     try {
-      const response = await Products(0)
+      const response = await Banner()
       if (response.status === 200) {
-        setTimeout(() => {
-          setData(response.data)
-          // setLoading(false)
-        }, 500)
+        setBanner({ data: response.data.banners, loading: false })
       }
-      setBannerLoading(false)
-      setLoading(false)
     } catch (error) {
-      if (error) {
-        console.log(error)
+      if (error) console.log(error)
+    }
+  }, [])
+
+  // Fetch category with products
+  const fetchCategory = useCallback(async () => {
+    try {
+      const response = await CategoryWithProducts(1)
+      if (response.status === 200) {
+        setCategory({ data: response.data.data, loading: false })
       }
+    } catch (error) {
+      if (error) console.log(error)
     }
   }, [])
 
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    fetchBanner()
+  }, [fetchBanner])
+
+  useEffect(() => {
+    fetchCategory()
+  }, [fetchCategory])
 
   return (
     <div>
@@ -51,9 +59,17 @@ export default function Home() {
       <NavbarBottom />
 
       <main>
-        <BannerCarousel loading={bannerLoading} />
+        <BannerCarousel
+          loading={banner.loading}
+          data={banner.data}
+        />
+
         <Features />
-        <Categories data={data} loading={loading} />
+        <Categories
+          data={category.data}
+          loading={category.loading}
+        />
+
         <Footer />
         <GotoTop />
       </main>

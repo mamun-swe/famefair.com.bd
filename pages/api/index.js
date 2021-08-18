@@ -14,8 +14,20 @@ export async function CategoryWithProducts(page) {
     return response
 }
 
+// fetch specific category
+export async function CategoryBySlug(slug) {
+    const response = await Axios.get(`${api}category/${slug}`)
+    return response
+}
+
 // fetch category products with pagination
-export async function CategoryProducts(page) {
-    const response = await Axios.get(`${api}photos?_page=${page}&_limit=18`)
+export async function CategoryProducts(id, page) {
+    const response = await Axios.get(`${api}category/products/${id}?page=${page}`)
+    return response
+}
+
+// fetch specific product
+export async function ProductBySlug(slug) {
+    const response = await Axios.get(`${api}product/${slug}`)
     return response
 }

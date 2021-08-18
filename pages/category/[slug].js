@@ -1,5 +1,6 @@
 
 import Head from 'next/head'
+import { useCallback, useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import NavbarTop from '../../components/navbarTop/index'
@@ -8,53 +9,66 @@ import Footer from '../../components/footer/index'
 import GotoTop from '../../components/goTop/index'
 import Product from '../../components/product/index'
 
-import { CategoryLoader } from '../../components/contentLoader/Category'
-import { ProducstLoader } from '../../components/contentLoader/Products'
-
-import { categories } from '../../utils/data'
-import { CategoryProducts } from '../api/index'
-
-import { useCallback, useEffect, useState } from 'react'
-
-import { products } from '../../utils/data'
+import { CategoryBySlug, CategoryProducts } from '../api/index'
+import { useQuery } from '../../components/useQuery/index'
+import { BannerLoader } from '../../components/contentLoader/Index'
+import { ProducstLoader } from '../../components/contentLoader/Product'
 
 export default function Category() {
-    const [page, setPage] = useState(0)
-    const [items, setItems] = useState([])
+    const query = useQuery()
+    const [page, setPage] = useState(2)
     const [loading, setLoading] = useState(true)
 
-    // Fetch data
-    const fetchData = useCallback(async () => {
+    const [category, setCategory] = useState({ value: null, loading: true })
+    const [products, setProducts] = useState([])
+
+    // Fetch category
+    const fetchCategory = useCallback(async (slug) => {
         try {
-            const response = await CategoryProducts(0)
+            const response = await CategoryBySlug(slug)
             if (response.status === 200) {
-                setTimeout(() => {
-                    setItems(response.data)
-                }, 500)
+                setCategory({ value: response.data.data, loading: false })
             }
-            setLoading(false)
         } catch (error) {
-            if (error) {
-                console.log(error)
+            if (error) console.log(error)
+        }
+    }, [])
+
+    // Fetch products
+    const fetchProducts = useCallback(async (id) => {
+        try {
+            const response = await CategoryProducts(id, 1)
+            if (response.status === 200) {
+                setProducts(response.data.data)
             }
+        } catch (error) {
+            if (error) console.log(error)
         }
     }, [])
 
 
     useEffect(() => {
-        fetchData()
-    }, [fetchData])
+        if (query) fetchCategory(query.slug)
+    }, [query, fetchCategory])
+
+    useEffect(() => {
+        if (category.value) fetchProducts(category.value._id)
+    }, [category, fetchProducts])
 
 
     //   Get more data
     const getMore = async () => {
         try {
-            setPage(page + 1)
-            const response = await CategoryProducts(page + 1)
+            setLoading(true)
+            const response = await CategoryProducts(category.value._id, page)
             if (response.status === 200) {
-                setItems([...items, ...response.data])
+                if (response.data.data && response.data.data.length) {
+                    setProducts([...products, ...response.data.data])
+                    setPage(page + 1)
+                } else {
+                    setLoading(false)
+                }
             }
-
         } catch (error) {
             if (error) console.log(error)
         }
@@ -71,64 +85,48 @@ export default function Category() {
             <NavbarBottom />
 
             <main>
-                {loading ?
-                    <CategoryLoader />
-                    :
-                    <div>
 
-                        {/* Category Banner */}
-                        <div className="banner-container">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="card banner-card border-0">
-                                            <img src={categories[0].banner} className="img-fluid" alt={categories[0].name} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Products container */}
-                        <div className="products-container pb-4">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <InfiniteScroll
-                                            dataLength={items.length}
-                                            next={getMore}
-                                            hasMore={true}
-                                            loader={<ProducstLoader items={18} />}
-                                            endMessage={
-                                                <p style={{ textAlign: 'center' }}>
-                                                    <b>Yay! You have seen it all</b>
-                                                </p>
-                                            }
-                                        >
-                                            {items && items.length ?
-                                                items.map((item, j) =>
-                                                    <Product
-                                                        key={j}
-                                                        item={products[1]}
-                                                    />
-                                                )
-                                                : null}
-
-                                        </InfiniteScroll>
-                                    </div>
+                {/* Category Banner */}
+                <div className="banner-container">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="card banner-card border-0">
+                                    {category.loading ? <BannerLoader /> :
+                                        <img src={category.value.image} className="img-fluid" alt="..." />
+                                    }
                                 </div>
                             </div>
                         </div>
                     </div>
-                }
+                </div>
+
+                {/* Products container */}
+                <div className="products-container pb-4">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12">
+                                <InfiniteScroll
+                                    dataLength={products.length}
+                                    next={getMore}
+                                    hasMore={loading}
+                                    loader={<ProducstLoader items={14} />}
+                                >
+                                    {products && products.length ?
+                                        products.map((item, j) =>
+                                            <Product key={j} item={item} />
+                                        ) : null
+                                    }
+                                </InfiniteScroll>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <Footer />
                 <GotoTop />
 
             </main>
-
-
-
         </div>
     )
 }

@@ -14,9 +14,9 @@ const Index = (props) => {
             {/* Small images container */}
             <div className="small-images d-none d-lg-block">
                 <ul>
-                    {props.products && props.products.map((item, i) =>
-                        <li key={i} onClick={() => setLargeImage(item.image)}>
-                            <img src={item.image} className="img-fluid" alt="..." />
+                    {props.data.additional && props.data.additional.map((item, i) =>
+                        <li key={i} onClick={() => setLargeImage(item)}>
+                            <img src={item} className="img-fluid" alt="..." />
                         </li>
                     )}
                 </ul>
@@ -27,14 +27,14 @@ const Index = (props) => {
                 <ReactImageMagnify {...{
                     smallImage: {
                         alt: '...',
-                        src: largeImage || props.products[0].image,
+                        src: largeImage || props.data.large,
                         width: size.width <= 1200 ? 300 : 450,
                         height: size.width <= 1200 ? 300 : 450
                     },
                     style: { margin: 'auto' },
                     imageClassName: 'magnifiySmallImage',
                     largeImage: {
-                        src: largeImage || props.products[0].image,
+                        src: largeImage || props.data.large,
                         width: 1200,
                         height: 1800
                     },
@@ -45,9 +45,9 @@ const Index = (props) => {
             {/* Small images container */}
             <div className="small-images d-block d-lg-none">
                 <ul>
-                    {props.products && props.products.map((item, i) =>
-                        <li key={i} onClick={() => setLargeImage(item.image)}>
-                            <img src={item.image} width={80} height={65} alt="..." />
+                    {props.data.additional && props.data.additional.map((item, i) =>
+                        <li key={i} onClick={() => setLargeImage(item)}>
+                            <img src={item} width={80} height={65} alt="..." />
                         </li>
                     )}
                 </ul>

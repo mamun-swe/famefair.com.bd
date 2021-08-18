@@ -13,7 +13,7 @@ export const PrepareForCart = data => {
         vendor: data.vendor ? data.vendor : null,
         category: data.category ? data.category : null,
         discount_amount: data.discount_amount ? data.discount_amount : null,
-        image: data.image
+        image: data.images.small
     }
 
     return product

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { ProducstLoader } from './Products'
+import { ProducstLoader } from './Product'
 
 // Carousel loader
 export const CarouselLoader = (props) => {
@@ -43,6 +43,33 @@ export const CarouselLoader = (props) => {
     )
 };
 
+// Banner loader
+export const BannerLoader = (props) => {
+    const container = useRef()
+    const [width, setWidth] = useState(0)
+    const [height, setHeight] = useState(0)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(container.current.offsetWidth)
+            setHeight(container.current.offsetHeight)
+        }
+
+        window.addEventListener('resize', handleResize)
+        handleResize()
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    return (
+        <div style={{ width: "100%", height: "100%" }} ref={container}>
+            <Skeleton
+                width={props.width ? props.width : width}
+                height={props.height ? props.height : height}
+            />
+        </div>
+    );
+};
 
 // Categories loader
 export const CategoriesLoader = (props) => {

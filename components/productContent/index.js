@@ -42,15 +42,17 @@ const index = (props) => {
         dispatch(addWistlist(product))
     }
 
+    console.log(props.data);
+
     return (
         <div className="product-content-container">
-            <h5>Product name goes here</h5>
-            <p><span>SKU:</span> 1234sku</p>
-            <p className="mb-4"><span>BRAND:</span> Brand</p>
+            <h5>{props.data.name}</h5>
+            <p><span>SKU:</span> {props.data.sku}</p>
+            <p className="mb-4"><span>BRAND:</span> {props.data.brand ? props.data.brand.name : "N/A"}</p>
 
 
             <p className="mb-0">PRICE</p>
-            <h6 className="mb-3">15555 tk.</h6>
+            <h6 className="mb-3">{props.data.salePrice} tk.</h6>
             <p className="small-content mb-0"><Check className="text-success" size={16} /> 30 days return.</p>
             <p className="small-content mb-0"><Check className="text-success" size={16} /> Cash on delivery.</p>
             <p className="small-content mb-0"><Check className="text-success" size={16} /> Delivery charge 60 tk inside dhaka.</p>

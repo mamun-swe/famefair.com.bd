@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ArrowUpRight, Search } from 'react-feather'
+import { SearchSuggestion } from '../../pages/api/index'
 
 const Index = () => {
     const router = useRouter()
@@ -27,27 +28,29 @@ const Index = () => {
 
     // Handle search
     const handleSearch = async event => {
-        const value = event.target.value
-        setQuery(value)
-        if (!value) {
-            setItems({ values: null, message: null })
-            setShow(false)
-            setQuery(null)
-            return
-        }
+        try {
+            const value = event.target.value
 
-        // const response = await searchSuggest(value)
-        // if (response.status === true && response.results.length) {
-        //     setShow(true)
-        //     setItems({ values: response.results, message: null })
-        // } else if (response.status === false) {
-        //     setShow(true)
-        //     setItems({ values: null, message: response.message })
-        // } else {
-        //     setItems({ values: null, message: null })
-        //     setShow(false)
-        //     return
-        // }
+            setQuery(value)
+            if (!value) {
+                setItems({ values: null, message: null })
+                setShow(false)
+                setQuery(null)
+                return
+            }
+
+            setShow(true)
+            const response = await SearchSuggestion(value)
+
+            if (response && response.status === 200) {
+                if (response.data && response.data.data.length)
+                    setItems({ values: response.data.data, message: null })
+            }
+        } catch (error) {
+            if (error) {
+                setItems({ values: [], message: error.response ? error.response.data.message : null })
+            }
+        }
     }
 
     // Product click handeller
@@ -57,7 +60,7 @@ const Index = () => {
 
         setItems({ values: null, message: null })
         setShow(false)
-        router.push(`/search/${productName}`)
+        router.push(`/search-results?query=${productName}`)
     }
 
     // Handle submit
@@ -69,7 +72,7 @@ const Index = () => {
 
             let name = query
             name = name.replace(/ /g, "+")
-            router.push(`/search-results?page=1&query=${name}`)
+            router.push(`/search-results?query=${name}`)
         }
     }
 
@@ -81,6 +84,7 @@ const Index = () => {
                         type="text"
                         className="form-control"
                         placeholder="Search"
+                        defaultValue={router && router.query ? router.query.query : null}
                         onChange={handleSearch}
                     />
                     <Search size={20} className="icon" />
@@ -91,17 +95,18 @@ const Index = () => {
             {show ?
                 <div className="suggest-container" ref={wrapperRef}>
                     <div className="card shadow border-0">
-                        {items.values && items.values.length && items.values.map((product, i) =>
-                            <div className="item d-flex" key={i} onClick={() => clickHandeller(product.name)}>
-                                <div className="img-container">
-                                    <img src={product.thumbnail} className="img-fluid" alt="..." />
+                        {items.values && items.values.length ?
+                            items.values.map((product, i) =>
+                                <div className="item d-flex" key={i} onClick={() => clickHandeller(product.name)}>
+                                    <div className="img-container">
+                                        <img src={product.image} className="img-fluid" alt="..." />
+                                    </div>
+                                    <div><p>{product.name}</p></div>
+                                    <div className="ms-auto pt-2">
+                                        <ArrowUpRight size={18} />
+                                    </div>
                                 </div>
-                                <div><p>{product.name}</p></div>
-                                <div className="ms-auto pt-2">
-                                    <ArrowUpRight size={18} />
-                                </div>
-                            </div>
-                        )}
+                            ) : null}
 
                         {items.message ?
                             <div className="message text-center p-4">

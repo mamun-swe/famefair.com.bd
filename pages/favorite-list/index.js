@@ -2,19 +2,15 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { X } from 'react-feather'
-import {
-    wishListProducts,
-    removeFromList
-} from '../../redux/Actions/wishlist'
-import { addProduct } from '../../redux/Actions/cart'
 import { useSelector, useDispatch } from 'react-redux'
+import { wishListProducts, removeFromList } from '../../redux/Actions/wishlist'
+import { addProduct } from '../../redux/Actions/cart'
 
 import NavbarTop from '../../components/navbarTop/index'
 import NavbarBottom from '../../components/navbarBottom/index'
 import Footer from '../../components/footer/index'
 import GotoTop from '../../components/goTop/index'
 import EmptyComponent from '../../components/empty/index'
-
 
 const index = () => {
     const dispatch = useDispatch()
@@ -65,7 +61,7 @@ const index = () => {
                                                     <div className="flex-fill px-2 px-lg-4">
                                                         <h6>{item.name}</h6>
                                                         <p><span>SKU :</span> {item.sku}</p>
-                                                        <p><span>BRAND :</span> {item.brand ? item.brand : 'N/A'}</p>
+                                                        <p><span>BRAND :</span> {item.brand ? item.brand.name : 'N/A'}</p>
                                                     </div>
 
                                                     <div className="text-end ps-2 ps-lg-0">

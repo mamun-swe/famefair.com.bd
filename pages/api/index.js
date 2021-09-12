@@ -1,5 +1,5 @@
 import Axios from "axios"
-const api = "http://157.245.192.70:4000/api/v1/web/"
+const api = "https://api.famefair.com.bd/api/v1/web/"
 // const api = "http://localhost:4000/api/v1/web/"
 
 // Banner
@@ -29,5 +29,17 @@ export async function CategoryProducts(id, page) {
 // fetch specific product
 export async function ProductBySlug(slug) {
     const response = await Axios.get(`${api}product/${slug}`)
+    return response
+}
+
+// Search suggestion
+export async function SearchSuggestion(query) {
+    const response = await Axios.get(`${api}search/suggestion/${encodeURI(query)}`)
+    return response
+}
+
+// Search results
+export async function SearchResults(query, page, limit) {
+    const response = await Axios.get(`${api}search/results/${encodeURI(query)}?page=${page}&limit=${limit}`)
     return response
 }

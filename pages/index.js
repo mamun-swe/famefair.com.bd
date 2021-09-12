@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Famefair</title>
+        <title>Famefair || Biggest online market in Bangladesh.</title>
         <meta name="description" content="Famefair.com.bd biggest online market" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

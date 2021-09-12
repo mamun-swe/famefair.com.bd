@@ -13,8 +13,6 @@ import { ProductLoader } from '../../components/contentLoader/Product'
 import { useQuery } from '../../components/useQuery/index'
 import { ProductBySlug } from '../../pages/api/index'
 
-import { products } from '../../utils/data'
-
 export default function Product() {
     const query = useQuery()
     const [data, setData] = useState({ value: null, loading: true })
@@ -39,7 +37,7 @@ export default function Product() {
     return (
         <div className="product-show">
             <Head>
-                <title>Famefair || Product</title>
+                <title>Famefair || {data.value ? data.value.name : null}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -54,8 +52,11 @@ export default function Product() {
                         <div className="col-12 col-lg-7 mb-3 mb-lg-0 pr-lg-2">
                             <div className="card border-0 shadow-sm" style={card}>
                                 <div className="card-body">
-                                    {data.loading ? <ProductLoader height={250} /> :
-                                        <ProductImages data={data.value.images} />}
+                                    {data.loading ?
+                                        <ProductLoader height={250} />
+                                        :
+                                        <ProductImages data={data.value.images} />
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -64,8 +65,11 @@ export default function Product() {
                         <div className="col-12 col-lg-5 pl-lg-2">
                             <div className="card border-0 shadow-sm" style={card}>
                                 <div className="card-body p-4">
-                                    {data.loading ? <ProductLoader height={250} /> :
-                                        <ProductContent data={data.value} />}
+                                    {data.loading ?
+                                        <ProductLoader height={250} />
+                                        :
+                                        <ProductContent data={data.value} />
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -88,8 +92,11 @@ export default function Product() {
                         <div className="col-12 mb-4">
                             <div className="card border-0 shadow-sm" style={card}>
                                 <div className="card-body">
-                                    {data.loading ? <ProductLoader height={250} /> :
-                                        <ProductTab />}
+                                    {data.loading ?
+                                        <ProductLoader height={250} />
+                                        :
+                                        <ProductTab data={data.value} />
+                                    }
                                 </div>
                             </div>
                         </div>
